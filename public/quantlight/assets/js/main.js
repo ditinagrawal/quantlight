@@ -1421,9 +1421,16 @@ fetch("header.html")
         $(".offcanvas__overlay").removeClass("overlay-open");
       }
     });
-    $(".sidebar__toggle").on("click", function () {
-      $(".offcanvas__area").addClass("info-open");
-      $(".offcanvas__overlay").addClass("overlay-open");
+    $(".sidebar__toggle").on("click", function (e) {
+      e.stopPropagation();
+      $(".offcanvas__area").toggleClass("info-open");
+    });
+
+    // Close sidebar when clicking outside
+    $(document).on("click", function (e) {
+      if (!$(e.target).closest(".offcanvas__area, .sidebar__toggle").length) {
+        $(".offcanvas__area").removeClass("info-open");
+      }
     });
   })
   .catch((error) => {
