@@ -1,0 +1,33 @@
+@use "../utils" as *;
+
+/*----------------------------------------*/
+/*  2.2 background
+/*----------------------------------------*/
+
+.white-bg {
+  background-color: var(--rr-common-white);
+}
+
+.black-bg {
+  background-color: var(--rr-common-black);
+}
+
+.heading-bg {
+  background-color: var(--rr-heading-primary);
+}
+
+.white_smoke {
+  background-color: var(--rr-color-white_smoke);
+}
+.white_smoke-2 {
+  background-color: var(--rr-color-white_smoke-2);
+}
+.white_smoke-3 {
+  background-color: var(--rr-color-white_smoke-3);
+}
+.primary-bg-3 {
+  background-color: var(--rr-theme-primary-3);
+}
+.body-bg-1 {
+  background-color: var(--rr-body-primary-1);
+}

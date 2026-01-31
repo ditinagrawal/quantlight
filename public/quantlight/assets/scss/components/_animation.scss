@@ -1,0 +1,279 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.11 animation
+/*----------------------------------------*/
+
+
+
+.ripple {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	border-radius: 50%;
+	animation: ripple 1.5s linear infinite;
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.ripple.delay {
+	animation-delay: 0s;
+}
+
+@keyframes ripple {
+	0% {
+		transform: scale(1);
+		opacity: 0.6;
+	}
+
+	100% {
+		transform: scale(2);
+		opacity: 0;
+	}
+}
+
+
+// custom-anim-left
+.custom-anim-left {
+	animation: anim-left 1.3s forwards cubic-bezier(0.645, 0.045, 0.355, 1) 0.4s;
+	opacity: 0;
+}
+
+@keyframes anim-left {
+	0% {
+		transform: translateX(-5%);
+		clip-path: inset(0 100% 0 0);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0);
+		clip-path: inset(0 0 0 0);
+		opacity: 1;
+	}
+}
+
+.skillInLeft {
+	opacity: 0;
+	animation: skillInLeft 1.4s forwards cubic-bezier(0.645, 0.045, 0.355, 1) 0.4s;
+}
+
+@keyframes skillInLeft {
+	0% {
+		transform: translateX(0);
+		clip-path: inset(0 100% 0 0);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0);
+		clip-path: inset(0 0 0 0);
+		opacity: 1;
+	}
+}
+
+
+
+
+.FadeInUp {
+	opacity: 0;
+	animation: FadeInUp 2s ease-out forwards;
+}
+
+@keyframes FadeInUp {
+	0% {
+		opacity: 0;
+		transform: translateY(35px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+
+
+
+
+// Animate ripple  
+@keyframes ripple {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.3);
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(1.6);
+		opacity: 0;
+	}
+}
+
+// Animate ripple  
+@keyframes popupBtn {
+	0% {
+		transform: scale(1);
+		opacity: .6;
+	}
+
+	50% {
+		transform: scale(1.4);
+		opacity: 0.3;
+	}
+
+	100% {
+		transform: scale(2);
+		opacity: 0;
+	}
+}
+
+
+
+// Animate slide-left  
+@keyframes slide-left {
+	from {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+
+	to {
+		-webkit-transform: translateX(-100%);
+		transform: translateX(-100%);
+	}
+}
+
+
+////////////////////////////////////////////////////////////////
+//Custom Animation
+
+// Animate Up-down
+.upDown {
+	animation: upDown 1.3S infinite alternate;
+}
+
+@keyframes upDown {
+	0% {
+		@include transform(translateY(0px));
+	}
+
+	100% {
+		@include transform(translateY(-15px));
+	}
+}
+
+
+.upDown-top {
+	animation: upDown 1S infinite alternate;
+}
+
+@keyframes upDown-top {
+	0% {
+		@include transform(translateY(0px));
+	}
+
+	100% {
+		@include transform(translateY(-10px));
+	}
+}
+
+
+
+.upDown-bottom {
+	animation: upDown .8S infinite alternate;
+}
+
+@keyframes upDown-bottom {
+	0% {
+		@include transform(translateY(0px));
+	}
+
+	100% {
+		@include transform(translateY(-8px));
+	}
+}
+
+
+
+// Animate left-down
+.rightLeft {
+	animation: rightLeft 1.3S infinite alternate;
+}
+
+@keyframes rightLeft {
+	0% {
+		@include transform(translateX(0px));
+	}
+
+	100% {
+		@include transform(translateX(10px));
+	}
+}
+
+
+.zooming {
+	animation: zooming 1.3S infinite alternate;
+}
+
+@keyframes zooming {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.1);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+
+.zoom {
+	animation: zooming 1.3S infinite alternate;
+}
+
+@keyframes zoom {
+	0% {
+		transform: scale(1) translate(0, 0);
+	}
+
+	50% {
+		transform: scale(1.1) translate(19px, 19px);
+	}
+
+	100% {
+		transform: scale(1) translate(0, 0);
+	}
+}
+
+
+
+
+
+.rotate360 {
+	animation: rotate360 9s cubic-bezier(1, 0.99, 0.03, 0.01) infinite;
+}
+
+@keyframes rotate360 {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes rotate-360 {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(-360deg);
+	}
+}

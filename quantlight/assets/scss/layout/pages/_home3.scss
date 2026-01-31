@@ -1,0 +1,90 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  8.13 home3
+/*----------------------------------------*/
+
+// planning-section-3
+.planning-section-3 {
+    &__image {
+        img {
+            @media #{$xl,$lg,$md,$sm,$xs} {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    &__list {
+        ul {
+            gap: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            align-items: center;
+            margin-bottom: 60px;
+
+            @media #{$xl,$lg,$md,$sm,$xs} {
+                margin-bottom: 30px;
+            }
+
+            @media #{$lg} {
+                gap: 5px;
+            }
+
+            li {
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 1;
+                cursor: pointer;
+                display: inline-block;
+                border-radius: 500px;
+                padding: 10.5px 26.4px;
+                letter-spacing: -0.01em;
+                color: var(--rr-heading-primary);
+                transition: all 0.3s ease-in-out;
+                border: 1px solid rgb(31 49 48 / 10%);
+
+                @media #{$xl} {
+                    padding: 10.5px 24.4px;
+                }
+
+                @media #{$lg} {
+                    padding: 8.5px 9.4px;
+                }
+
+                @media #{$sm} {
+                    padding: 10.5px 20.4px;
+                }
+
+                &.active {
+                    color: var(--rr-common-white);
+                    border-color: var(--rr-heading-primary);
+                    background-color: var(--rr-heading-primary);
+                }
+            }
+        }
+    }
+
+    &__dec {
+        margin-top: 20px;
+        margin-bottom: 35px;
+    }
+
+    &__thumb {
+        img {
+            @media #{$lg,$md,$sm,$xs} {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            @media #{$lg,$md,$sm,$xs} {
+                height: 400px;
+                margin-bottom: 30px;
+                transform: translate(0px) !important;
+            }
+        }
+    }
+}

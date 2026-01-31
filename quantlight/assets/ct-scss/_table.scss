@@ -1,0 +1,58 @@
+.why-choose-cta-banner {
+    margin-bottom: -93px;
+    
+    @media (max-width: 1199px) {
+        margin-bottom: -70px;
+    }
+
+    @media (max-width: 991px) {
+        margin-bottom: -110px;
+    }
+
+    @media (max-width: 767px) {
+        margin-bottom: -90px;
+    }
+	
+    @media (max-width: 506px) {
+        margin-bottom: -100px;
+    }
+
+    @media (max-width: 365px) {
+        margin-bottom: -120px;
+    }
+
+    .overly {
+
+        .container {
+            z-index: 1;
+            position: relative;
+
+            &:after {
+                top: -907px;
+                content: "";
+                z-index: -1;
+                left: -1544px;
+                width: 2751.74px;
+                height: 1725.79px;
+                position: absolute;
+                background-size: auto;
+                background-repeat: no-repeat;
+                background-image: url(assets/ct-img/table/why-choose-cta-banner-overly.png);
+            }
+        }
+    }
+
+    .cta-banner {
+        z-index: 2;
+        margin-bottom: 0;
+        
+        &:after {
+            content: inherit;
+        }
+    }
+
+    & ~ .footer-1 {
+        z-index: 1;
+        position: relative;
+    }
+}

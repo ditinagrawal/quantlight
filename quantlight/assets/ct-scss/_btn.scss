@@ -1,0 +1,245 @@
+/* ------------------------------------------------------------------
+   Template Default Button, Input Styles - Value Change with Your's Need
+ -------------------------------------------------------------------- */
+.theme-btn {
+    border: 0;
+    color: $white;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    font-family: $pop;
+    border-radius: 2px;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 18px 37.8px;
+    @include transition(.4s);
+    background-color: $primary;
+
+    // Button hover effect
+    &:after{
+        background: $primary1;
+    }
+    &.btn__2{
+        
+        z-index: 1;
+        overflow: hidden;
+        position: relative;
+        &:after{
+            background: $red !important;
+            top: 50%;
+            left: 50%;
+            content: "";
+            width: 100%;
+            height: 0%;
+            z-index: -1;
+            position: absolute;
+            transition: all 0.6s ease; 
+            transform: translate(-50%,-50%) rotate(-45deg);
+        }
+
+        &:hover, &:focus {
+            color: $white !important;
+            &:after {
+                height: 380%;
+            }
+        }
+    }
+    &.btn_sm__2{
+        @media( max-width:900px) {
+            padding: 12px 25px;
+        }
+    }
+    @media (max-width: 767px) {
+        padding: 17px 30px;
+        font-size: 14px;
+    }
+
+    @media (max-width: 580px) {
+        padding: 16px 26px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 15px 25px;
+    }
+
+    i {
+        font-size: 12px;
+        margin-left: 10px;
+    }
+
+    &.btn-white {
+        color: $dark_black;
+        background-color: $white;
+
+        &:after{
+            background: $primary1;
+        }
+    }
+
+    &:hover, &:focus {
+        color: $white;
+        background-color: $primary1;
+    }
+
+    &.btn-sm {
+        padding: 15px 29px;
+    }
+
+    &.btn-yellow {
+        background-color: $primary1;
+
+        // Button hover effect
+        &:after{
+            background: $primary;
+        }
+
+        &:hover, &:focus {
+            background: $primary;
+        }
+    }
+
+    &.btn-md {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    &.btn-red {
+        background-color: $red;
+
+        // Button hover effect
+        &:after{
+            background: $primary1;
+        }
+
+        &:hover, &:focus {
+            background-color: $red;
+        }
+    }
+
+    &.btn-black {
+        padding: 8px 79.1px;
+        background-color: $secondary;
+
+        // Button hover effect
+        &:after{
+            background: $primary;
+        }
+
+        &:hover, &:focus {
+            background: $primary;
+        }
+    }
+
+    &.btn-transparent {
+        color: $primary1;
+        padding: 13.5px 31.1px;
+        background: transparent;
+        border: 1.5px solid rgba(255, 156, 0, 0.3);
+
+        i {
+            margin: 0 10px 0 0;
+        }
+
+        // Button hover effect
+        &:after{
+            background: $primary;
+        }
+
+        &:hover, &:focus {
+            color: $black;
+            background: $primary;
+            border-color: $primary;
+        }
+    }
+
+    &.btn-border {
+        color: $textcolor;
+        padding: 13.5px 26.5px;
+        background: transparent;
+        border: 1.5px solid rgba(36, 51, 66, 0.5);
+
+        // Button hover effect
+        &:after{
+            background: $textcolor;
+        }
+
+        &:hover, &:focus {
+            color: $white;
+            background: $textcolor;
+        }
+    }
+
+    &.btn-yellow-transparent {
+        color: $primary1;
+        padding: 13.5px 31.1px;
+        background: transparent;
+        border: 1.5px solid rgba(255, 156, 0, 0.3);
+        
+        // Button hover effect
+        &:after{
+            background: $primary;
+        }
+        
+        &:hover, &:focus {
+            color: $white;
+            border-width: 1px;
+            padding: 14px 31.6px;
+            border-color: $primary;
+            background: transparent;
+        }
+    }
+
+    // Button hover effect
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+
+    &:after{
+        top: 50%;
+        left: 50%;
+        content: "";
+        width: 100%;
+        height: 0%;
+        z-index: -1;
+        position: absolute;
+        transition: all 0.6s ease; 
+        transform: translate(-50%,-50%) rotate(-45deg);
+    }
+
+    &:hover, &:focus { 
+   
+        &:after {
+            height: 380%;
+        }
+    }
+}
+
+.video_btn{
+    width: 100px; 
+    height: 100px;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dotted $white;
+    border-radius: 500px;
+    margin: 0 auto;
+    .theme-btn-wrapper{
+        animation: playscale 3s linear infinite;
+        width: 85px; 
+        height: 85px;  
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $white;
+        border-radius: 500px;
+        border: 1px dotted $white;
+        .popup-video {  
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            line-height: 85px; 
+            color: $primary;
+        } 
+    }
+}

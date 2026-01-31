@@ -1,0 +1,166 @@
+@use "../utils" as *;
+
+/*----------------------------------------*/
+/*  2.7 breadcrumb
+/*----------------------------------------*/
+// Breadcrumb style
+
+
+
+.breadcrumb-section {
+    &__space {
+        padding-top: 265px;
+        padding-bottom: 115px;
+
+        @media #{$xl,$lg} {
+            padding-top: 210px;
+            padding-bottom: 110px;
+        }
+
+        @media #{$md} {
+            padding-top: 155px;
+            padding-bottom: 80px;
+        }
+
+        @media #{$sm,$xs} {
+            padding-top: 145px;
+            padding-bottom: 60px;
+        }
+    }
+
+    &__wrapper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            background-color: rgba(25, 41, 41, 0.7);
+        }
+    }
+
+    &__title {
+        font-weight: 400;
+        font-size: 80px;
+        line-height: 1;
+        margin-bottom: 23px;
+        letter-spacing: -0.01em;
+        color: var(--rr-common-white);
+
+        @media #{$lg,$md} {
+            font-size: 70px;
+            margin-bottom: 10px;
+        }
+
+        @media #{$sm} {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        @media #{$xs} {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__content {
+        z-index: 1;
+        position: relative;
+    }
+
+    &__border {
+        margin: 0 80px;
+        position: relative;
+        padding-bottom: 100px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+        @media #{$xxl,$xl,$lg,$md,$sm,$xs} {
+            margin: 0 15px;
+        }
+
+        @media #{$lg} {
+            padding-bottom: 70px;
+        }
+
+        @media #{$md,$sm,$xs} {
+           padding-bottom: 50px;
+        }
+    }
+
+    &__page {
+        list-style: none;
+
+        li {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1;
+            display: inline-block;
+            color: var(--rr-common-white);
+
+            a:hover {
+                color: var(--rr-theme-primary);
+            }
+        }
+    }
+}
+
+
+// inner-faq-section
+.inner-faq-section {
+    .faq-section-4 {
+        &__faq {
+            .accordion-item {
+                border-color: rgba(25, 41, 41, 0.1);
+            }
+
+            .accordion-button {
+                color: var(--rr-heading-primary);
+                font-family: var(--rr-ff-heading);
+
+                span {
+                    color: var(--rr-common-white);
+                    font-family: var(--rr-ff-heading);
+                    background-color: var(--rr-heading-primary);
+                }
+
+                &:not(.collapsed) {
+                    color: var(--rr-heading-primary);
+
+                    &::after {
+                        color: var(--rr-heading-primary);
+                    }
+                }
+
+                &::after {
+                    color: rgba(25, 41, 41, 0.3);
+                }
+            }
+
+            .accordion-body {
+                p {
+                    color: rgba(25, 41, 41, 0.7);
+                }
+            }
+
+            &_2 {
+                .accordion-button {
+
+                    &:not(.collapsed) {
+                        span {
+                            color: var(--rr-heading-primary);
+                            background-color: var(--rr-theme-primary);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

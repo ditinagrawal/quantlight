@@ -1,0 +1,168 @@
+@use '../utils' as *;
+
+/*---------------------------------
+    1.7 common
+---------------------------------*/
+
+.fix {
+	overflow: hidden
+}
+
+.clear {
+	clear: both;
+}
+
+.f-left {
+	float: left
+}
+
+.f-right {
+	float: right
+}
+
+.z-index-1 {
+	z-index: 1;
+}
+
+.p-l-0 {
+	padding-left: 0 !important;
+}
+
+.z-index-11 {
+	z-index: 11;
+}
+
+.overflow-y-visible {
+	overflow-x: hidden;
+	overflow-y: visible;
+}
+
+.p-relative {
+	position: relative;
+}
+
+.p-absolute {
+	position: absolute;
+}
+
+.include-bg {
+	@include background();
+}
+
+.valign {
+	@include flexbox();
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+}
+
+
+body {
+	overflow-x: hidden;
+}
+
+.text_white {
+	color: var(--rr-common-white) !important;
+}
+
+.text_white_7 {
+	opacity: 0.7;
+	color: var(--rr-common-white);
+}
+
+.opacity_7 {
+	opacity: 0.7;
+}
+
+
+.text-invert>div {
+	background-image: linear-gradient(to right, #192929 50%, rgba(15, 15, 15, 0.3) 51%);
+	background-size: 200% 100%;
+	background-position-x: 100%;
+	color: transparent;
+	background-clip: text;
+	-webkit-background-clip: text;
+}
+
+
+.text_start {
+	text-align: start;
+}
+
+.text_center {
+	text-align: center;
+}
+
+.text_end {
+	text-align: end;
+}
+
+.bg-cover {
+	background-size: cover;
+}
+
+.mb-5 {
+	margin-bottom: 5px;
+}
+
+.mb-10 {
+	margin-bottom: 10px;
+}
+
+.mb-minus-30 {
+	margin-bottom: -30px;
+}
+
+.mb-minus-35 {
+	margin-bottom: -35px;
+}
+
+.mb-minus-40 {
+	margin-bottom: -40px;
+}
+.mb-minus-60 {
+	margin-bottom: -60px;
+}
+.mb-34 {
+	margin-bottom: 34px;
+}
+.mb-minus-34 {
+	margin-bottom: -34px;
+}
+
+.row-reverse {
+	flex-direction: row-reverse;
+}
+
+section {
+	margin-top: -2px;
+}
+
+footer {
+	margin-top: -2px;
+}
+
+.hidden-x {
+	overflow-x: clip;
+}
+
+@media (max-width: 575px) {
+	.reverse-xs {
+		flex-direction: column-reverse !important;
+	}
+}
+
+
+.team-3-bg-shape {
+	@media (min-width: 1700px) {
+		clip-path: path("M0,0 C140,150 330,150 452,0 L500,500 L0,500 Z");
+	}
+	@media (max-width: 1699px) {
+		clip-path: ellipse(80% 65% at 50% 100%);
+	}
+}

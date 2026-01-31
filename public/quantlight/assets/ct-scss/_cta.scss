@@ -1,0 +1,81 @@
+.cta-banner {
+    margin-bottom: -93px;
+
+    @media (max-width: 1199px) {
+        margin-bottom: -70px;
+    }
+
+    @media (max-width: 991px) {
+        margin-bottom: -110px;
+    }
+
+    @media (max-width: 767px) {
+        margin-bottom: -90px;
+    }
+	
+    @media (max-width: 506px) {
+        margin-bottom: -100px;
+    }
+
+    @media (max-width: 365px) {
+        margin-bottom: -120px;
+    }
+
+    &__content {
+        gap: 30px;
+        z-index: 1;
+        padding-top: 52px;
+        position: relative;
+        padding-bottom: 52px;
+        background-color: $primary;
+
+        @media (max-width: 1199px) {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        
+        &:after {
+            top: 110px;
+            z-index: -1;
+            content: "";
+            right: 497px;
+            width: 208.67px;
+            height: 187.32px;
+            position: absolute;
+            background-repeat: no-repeat;
+            background-image: url(assets/ct-img/cta/cta-arrow.png);
+
+            animation-duration: 3s; 
+            animation-name: movebounce; 
+            animation-iteration-count: infinite; 
+            animation-timing-function: ease-in-out;
+        }
+
+        &-text {
+            max-width: 558px;
+
+
+            .title {
+                
+                @media (max-width: 991px) {
+                    font-size: 30px;
+                    line-height: 42px;
+                    text-align: center;
+                }
+
+                @media (max-width: 767px) {
+                    font-size: 30px;
+                    line-height: 42px;
+                    text-align: center;
+                }
+            }
+        }
+
+        .theme-btn {
+
+            @media (max-width: 1199px) {
+                padding: 16px 32px;
+            }
+        }
+    }
+}

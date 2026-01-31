@@ -1,0 +1,70 @@
+/* ------------------------------------------------------------------
+    Template All Variables Defined - Value Change with Your's Need
+ -------------------------------------------------------------------- */
+.color-white {
+  color: #FFF !important;
+}
+
+.color-black {
+  color: #000 !important;
+}
+
+.color-red {
+  color: #EF0548 !important;
+}
+
+.color-secondary {
+  color: #0E0A01 !important;
+}
+
+.color-yellow {
+  color: #FF9C00 !important;
+}
+
+.bg-yellow {
+  background-color: #FF9C00 !important;
+}
+
+.bg-red {
+  background-color: #EF0548 !important;
+}
+
+.bg-dark_yellow {
+  background-color: #F3F3F2 !important;
+}
+
+.bg-dark_red {
+  background-color: #FDF6F8 !important;
+}
+
+.color-d_black {
+  color: #0E1E36 !important;
+}
+
+.color-pd_black {
+  color: #04213F !important;
+}
+
+.bg-dark_white {
+  background-color: #EFF0F6 !important;
+}
+
+.color-primary {
+  color: #4069FF !important;
+}
+
+.font-la {
+  font-family: "Lato", sans-serif !important;
+}
+
+.fw-600 {
+  font-weight: 600 !important;
+}
+
+.fw-500 {
+  font-weight: 500 !important;
+}
+
+.mb-5 {
+  margin-bottom: 5px !important;
+}

@@ -1,0 +1,186 @@
+@use "../../utils" as *;
+
+/*----------------------------------------*/
+/* 8.1 404
+/*----------------------------------------*/
+
+
+.error-page {
+    &__space {
+        height: 100vh;
+        padding-top: 240px;
+
+        @media #{$lg} {
+            padding-top: 180px;
+        }
+
+        @media #{$md} {
+            padding-top: 170px;
+        }
+
+        @media #{$sm,$xs} {
+            padding-top: 160px;
+        }
+    }
+
+    &__thumb {
+        img {
+            @media #{$md,$sm,$xs} {
+                width: 70%;
+            }
+        }
+    }
+
+    &__title {
+        font-weight: 500;
+        font-size: 46px;
+        line-height: 53px;
+        margin-top: 54px;
+        margin-bottom: 26px;
+        color: var(--rr-common-white);
+
+        @media #{$md} {
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        @media #{$sm,$xs} {
+            font-size: 38px;
+            line-height: 45px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        @media #{$xs} {
+            font-size: 32px;
+            line-height: 38px;
+        }
+    }
+
+    &__dec {
+        margin: 0 auto;
+        font-size: 16px;
+        font-weight: 400;
+        max-width: 665px;
+        line-height: 26px;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    &__btn {
+        margin-top: 51px;
+
+        @media #{$md} {
+            margin-top: 30px;
+        }
+
+        @media #{$sm,$xs} {
+            margin-top: 20px;
+        }
+
+        .rr-btn {
+            background-color: var(--rr-common-white);
+
+            span {
+                background-color: var(--rr-theme-primary);
+            }
+
+            &:hover {
+                color: var(--rr-heading-primary);
+            }
+        }
+    }
+
+    &__copyright {
+        display: flex;
+        margin: 0 80px;
+        padding-top: 13px;
+        align-items: center;
+        padding-bottom: 34px;
+        justify-content: space-between;
+
+        @media #{$xl,$lg} {
+            margin: 0 30px;
+        }
+
+        @media #{$md,$sm,$xs} {
+            margin: 0 15px;
+            padding-bottom: 13px;
+        }
+
+        @media #{$sm,$xs} {
+            gap: 8px;
+            flex-wrap: wrap;
+            padding-top: 30px;
+            justify-content: center;
+        }
+
+        &-social {
+            ul {
+                gap: 5px;
+                display: flex;
+                list-style: none;
+                align-items: center;
+
+                li {
+                    a {
+                        width: 44px;
+                        height: 44px;
+                        display: flex;
+                        font-size: 17px;
+                        align-items: center;
+                        border-radius: 500px;
+                        justify-content: center;
+                        color: var(--rr-common-white);
+                        transition: all 0.3s ease-in-out;
+                        border: 1px solid rgb(255 255 255 / 10%);
+
+                        &:hover {
+                            color: var(--rr-heading-primary);
+                            border-color: var(--rr-theme-primary);
+                            background-color: var(--rr-theme-primary);
+                        }
+                    }
+                }
+            }
+        }
+
+        &-text p {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 30px;
+            color: rgba(255, 255, 255, 0.7);
+
+            @media #{$sm,$xs} {
+                text-align: center;
+            }
+
+            a:hover {
+                color: var(--rr-theme-primary);
+            }
+        }
+    }
+
+    &__bg-shape {
+        left: 0;
+        bottom: 0;
+    }
+
+    &__shape {
+        position: absolute;
+
+        &_1 {
+            top: 150px;
+            left: 31px;
+        }
+
+        &_2 {
+            left: 129px;
+            bottom: -189px;
+        }
+
+        &_3 {
+            top: 0;
+            right: 0;
+        }
+    }
+}

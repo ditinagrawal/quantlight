@@ -1,0 +1,137 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  8.12 home2
+/*----------------------------------------*/
+
+
+.our-capabilities-2 {
+    &__content {
+        @media #{$md,$sm,$xs} {
+            margin-bottom: 30px;
+        }
+
+        p {
+            max-width: 560px;
+        }
+    }
+
+    &__thumb {
+        position: relative;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image {
+            top: 0;
+            left: 0;
+            transform: scale(0);
+            position: absolute;
+            transition: all 0.6s ease-in-out;
+
+            &.active {
+                transform: scale(1);
+            }
+        }
+    }
+
+    &__tag {
+        ul {
+            gap: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            margin-top: 34px;
+            align-items: center;
+
+            @media #{$xl} {
+                gap: 5px;
+            }
+
+            @media #{$xs} {
+                margin-top: 25px;
+            }
+
+            li {
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 1;
+                cursor: pointer;
+                letter-spacing: -0.01em;
+                display: inline-block;
+                border-radius: 500px;
+                padding: 10.5px 26.4px;
+                transition: all 0.3s ease-in-out;
+                color: var(--rr-heading-primary);
+                border: 1px solid rgb(31 49 48 / 10%);
+
+                &.active {
+                    color: var(--rr-common-white);
+                    background-color: var(--rr-heading-primary);
+                }
+            }
+        }
+    }
+
+    &__counter {
+        width: 320px;
+        height: 320px;
+        display: flex;
+        align-items: center;
+        border-radius: 500px;
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+        border: 1px solid rgb(25 41 41 / 10%);
+
+        @media #{$lg} {
+            width: 220px;
+            height: 220px;
+        }
+
+        @media #{$xl,$md,$xs} {
+            width: 270px;
+            height: 270px;
+            margin: 0 auto;
+            margin-bottom: 30px;
+        }
+
+        @media #{$xs} {
+            width: 240px;
+            height: 240px;
+        }
+
+        @media #{$sm} {
+            margin: 0 auto;
+            margin-bottom: 30px;
+        }
+
+        &:hover {
+            border-color: var(--rr-theme-primary-3);
+            background-color: var(--rr-theme-primary-3);
+        }
+    }
+
+    &__count {
+        h2 {
+            font-weight: 500;
+            font-size: 90px;
+            line-height: 1;
+            margin-bottom: 0;
+            letter-spacing: -0.04em;
+            text-transform: capitalize;
+            color: var(--rr-heading-primary);
+
+            @media #{$lg,$md,$xs} {
+                font-size: 60px;
+            }
+
+            .odometer.odometer-auto-theme,
+            .odometer.odometer-theme-default {
+                line-height: 1;
+            }
+        }
+    }
+}

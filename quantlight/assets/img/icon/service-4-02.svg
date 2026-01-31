@@ -1,0 +1,22 @@
+<svg width="151" height="90" viewBox="0 0 151 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_822_494" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="61" y="12" width="29" height="67">
+<path d="M75.5 12C84.4146 20.2224 90 32.0002 90 45.084C90 58.1675 84.4143 69.9446 75.5 78.167C66.5857 69.9446 61 58.1675 61 45.084C61 32.0002 66.5854 20.2224 75.5 12Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_822_494)">
+<rect x="0.5" y="-0.5" width="69" height="2" transform="matrix(1 0 0 -1 40 25.084)" fill="#192929" stroke="#192929"/>
+<rect x="0.5" y="-0.5" width="69" height="2" transform="matrix(1 0 0 -1 40 30.084)" fill="#192929" stroke="#192929"/>
+<rect x="0.5" y="-0.5" width="69" height="2" transform="matrix(1 0 0 -1 40 35.084)" fill="#192929" stroke="#192929"/>
+<rect x="0.5" y="-0.5" width="69" height="2" transform="matrix(1 0 0 -1 40 40.084)" fill="#192929" stroke="#192929"/>
+<rect x="0.5" y="-0.5" width="69" height="2" transform="matrix(1 0 0 -1 40 45.084)" fill="#192929" stroke="#192929"/>
+<rect x="0.5" y="-0.5" width="69" height="2" transform="matrix(1 0 0 -1 40 50.084)" fill="#192929" stroke="#192929"/>
+<rect x="0.5" y="-0.5" width="69" height="2" transform="matrix(1 0 0 -1 40 56.084)" fill="#192929" stroke="#192929"/>
+<rect x="0.5" y="-0.5" width="69" height="2" transform="matrix(1 0 0 -1 40 61.084)" fill="#192929" stroke="#192929"/>
+<rect x="0.5" y="-0.5" width="69" height="2" transform="matrix(1 0 0 -1 40 66.084)" fill="#192929" stroke="#192929"/>
+<rect x="0.5" y="-0.5" width="69" height="2" transform="matrix(1 0 0 -1 40 71.084)" fill="#192929" stroke="#192929"/>
+<rect x="0.5" y="-0.5" width="69" height="2" transform="matrix(1 0 0 -1 40 77.084)" fill="#192929" stroke="#192929"/>
+<rect x="0.5" y="-0.5" width="69" height="2" transform="matrix(1 0 0 -1 40 20.084)" fill="#192929" stroke="#192929"/>
+<rect x="0.5" y="-0.5" width="69" height="2" transform="matrix(1 0 0 -1 40 14.084)" fill="#192929" stroke="#192929"/>
+</g>
+<circle cx="106" cy="45" r="44.5" stroke="#192929"/>
+<circle cx="45" cy="45" r="44.5" stroke="#192929"/>
+</svg>

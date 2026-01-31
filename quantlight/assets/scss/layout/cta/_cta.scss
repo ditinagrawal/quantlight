@@ -1,0 +1,414 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  7.1 cta
+/*----------------------------------------*/
+
+
+// cta-section
+.cta-section {
+    &__content {
+        padding-bottom: 95px;
+
+        @media #{$md} {
+            padding-bottom: 80px;
+        }
+
+        @media #{$sm,$xs} {
+            padding-bottom: 70px;
+        }
+
+        .section-heading {
+            &__wrap {
+                max-width: 552px;
+                margin: 0 auto;
+                margin-bottom: 60px;
+
+                @media #{$md} {
+                    margin-bottom: 40px;
+                }
+
+                @media #{$sm,$xs} {
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+
+    &__content {
+        background-color: var(--rr-heading-primary);
+    }
+
+    &__btn {
+        position: relative;
+
+        &::before {
+            content: "";
+            width: 100px;
+            height: 155px;
+            left: 50%;
+            top: 0;
+            position: absolute;
+            transform: translateX(-50%);
+            background-color: var(--rr-theme-primary);
+        }
+
+        .rr-btn {
+            background-color: var(--rr-common-white);
+
+            span {
+                background-color: var(--rr-theme-primary);
+            }
+
+            &:hover {
+                color: var(--rr-heading-primary);
+            }
+        }
+    }
+
+    &__shape {
+        &_1 {
+            position: absolute;
+            top: -121px;
+            left: -117px;
+
+            @media #{$sm} {
+                top: -80px;
+                left: -50px;
+            }
+        }
+
+        &_2 {
+            position: absolute;
+            bottom: -114px;
+            right: -111px;
+
+            @media #{$lg,$md} {
+                right: -190px;
+            }
+
+            @media #{$sm} {
+                bottom: -60px;
+                right: -270px;
+            }
+        }
+
+        img {
+            animation: rotate360 9s cubic-bezier(1, 0.99, 0.03, 0.01) infinite;
+
+            @media #{$lg,$md} {
+                width: 70%;
+            }
+
+            @media #{$sm} {
+                width: 40%;
+            }
+        }
+    }
+}
+
+// cta-section-2
+.cta-section-2 {
+    &__space {
+        @media #{$md} {
+            padding: 80px 0;
+        }
+
+        @media #{$sm,$xs} {
+            padding: 70px 0;
+        }
+    }
+
+    &__content {
+        z-index: 1;
+        max-width: 724px;
+        position: relative;
+
+        .section-heading {
+            &__wrap_2 {
+                .section {
+                    &__subtitle {
+                        color: var(--rr-theme-primary-3);
+                        background: var(--rr-heading-primary);
+                    }
+
+                    &__title {
+                        font-size: 90px;
+                        line-height: 110px;
+                        letter-spacing: -0.01em;
+
+                        @media #{$xl} {
+                            font-size: 80px;
+                            line-height: 90px;
+                        }
+
+                        @media #{$lg,$sm} {
+                            font-size: 65px;
+                            line-height: 75px;
+                        }
+
+                        @media #{$xs} {
+                            font-size: 35px;
+                            line-height: 45px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__thumb {
+        max-width: 780px;
+        max-height: 750px;
+        text-align: end;
+        margin: 0 0 auto auto;
+        margin-right: -49%;
+
+        @media #{$xxl,$xl,$lg} {
+            margin: 0;
+            margin-right: -49%;
+        }
+
+        @media #{$md,$sm,$xs} {
+            max-width: 500px;
+            max-height: auto;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            mask-image: url(../img/shapes/clip-path.png);
+            mask-size: 100% 100%;
+
+            @media #{$md,$sm,$xs} {
+                transform: translateY(0px) !important;
+            }
+        }
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        flex-wrap: wrap;
+
+        @media #{$xs} {
+            gap: 20px;
+        }
+
+        .rr-btn_2 span {
+            background-color: var(--rr-common-white);
+        }
+    }
+
+    &__btn-sub {
+        img {
+            margin-right: 12px;
+        }
+    }
+
+    &__shape {
+        &_1 {
+            top: -189px;
+            left: 44px;
+            position: absolute;
+        }
+
+        &_2 {
+            left: 49.5%;
+            bottom: 170px;
+            position: absolute;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+// cta-3
+.cta-3 {
+    &__text {
+        display: flex;
+        align-items: end;
+        justify-content: end;
+
+        @media #{$sm,$xs} {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__left {
+        width: 100%;
+        max-width: 549px;
+        position: relative;
+        padding: 34px 70px;
+        background: var(--rr-theme-primary);
+
+        @media #{$md} {
+            max-width: 50%;
+            padding: 27px 28px;
+        }
+
+        @media #{$sm,$xs} {
+            max-width: 100%;
+        }
+
+        @media #{$xs} {
+            padding: 15px;
+        }
+
+        &::before {
+            content: "";
+            width: 24px;
+            height: 27px;
+            top: 100%;
+            right: 0;
+            position: absolute;
+            background: var(--rr-theme-primary);
+            clip-path: polygon(100% 0, 0 0, 100% 100%);
+
+            @media #{$sm,$xs} {
+                display: none;
+            }
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1;
+            color: var(--rr-heading-primary);
+
+            @media #{$xs} {
+                line-height: 1.2;
+                text-align: center;
+            }
+        }
+    }
+
+    &__right {
+        width: 100%;
+        max-width: 738px;
+        padding: 34px 70px;
+        background-color: rgb(48, 62, 62);
+
+        @media #{$md} {
+            max-width: 50%;
+            padding: 27px 30px;
+        }
+
+        @media #{$sm,$xs} {
+            max-width: 100%;
+        }
+
+        @media #{$xs} {
+            padding: 15px;
+        }
+
+        a {
+            gap: 210px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            color: var(--rr-common-white);
+
+            @media #{$lg} {
+                gap: 160px;
+            }
+
+            @media #{$md,$xs} {
+                gap: 50px;
+            }
+
+            @media #{$xs} {
+                justify-content: center;
+            }
+        }
+    }
+}
+
+// cta-section-5
+.cta-section-5 {
+    &__wrapper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            background-color: rgba(25, 41, 41, 0.5);
+        }
+    }
+
+    &__space {
+        padding-top: 252px;
+        padding-bottom: 289px;
+
+        @media #{$xxl} {
+            padding-top: 190px;
+            padding-bottom: 190px;
+        }
+
+        @media #{$xl} {
+            padding-top: 150px;
+            padding-bottom: 150px;
+        }
+
+        @media #{$lg} {
+            padding-top: 120px;
+            padding-bottom: 120px;
+        }
+
+        @media #{$md} {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        @media #{$sm,$xs} {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+    }
+
+    &__text {
+        .section-heading {
+            &__wrap_5 {
+                .section {
+                    &__subtitle {
+                        span {
+                            background-color: var(--rr-common-white);
+                        }
+                    }
+
+                    &__title {
+                        span {
+                            color: var(--rr-theme-primary);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__btn {
+        margin-top: 47px;
+
+        @media #{$lg,$md} {
+            margin-top: 30px;
+        }
+
+        @media #{$sm,$xs} {
+            margin-top: 20px;
+        }
+    }
+}

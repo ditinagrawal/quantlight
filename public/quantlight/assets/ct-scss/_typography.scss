@@ -1,0 +1,74 @@
+/* --------------------------------------------
+    Template Default Fonts & Fonts Styles
+ ---------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pathway+Gothic+One&family=Poppins:wght@100;300;400;500;600;700&display=swap');
+
+/* --------------------------------------------
+    Template Default Fonts & Fonts Styles
+ ---------------------------------------------- */
+body {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    font-family: $pop;
+    color: $textcolor;
+    background-color: #fff;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0px;
+    font-family: $pop;
+    font-weight: 600;    
+    color: $textcolor;
+}
+
+h1 {
+    font-size: 64px;
+    line-height: 78px;
+}
+
+h2 {
+    font-size: 48px;
+    line-height: 60px; 
+}
+
+h3 {
+    font-size: 36px;
+    line-height: 48px;
+}
+
+h4 {
+    font-size: 24px;
+    line-height: 36px;
+}
+
+h5 {
+    font-size: 20px;
+    line-height: 26px;
+}
+
+h6 {
+    font-size: 18px;
+    line-height: 26px;
+}
+
+a {
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 17px;
+    color: $primary;
+    line-height: 32px;
+    text-decoration: none;
+    @include transition(.4s);
+    outline: none !important;
+}
+
+p {
+    margin: 0px;
+}

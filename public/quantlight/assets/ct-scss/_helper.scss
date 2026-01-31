@@ -1,0 +1,797 @@
+/* ----------------------------------
+    Template Helps Classes - Styles
+ ------------------------------------ */
+
+
+/***
+Spacing
+
+xs : 0 - 575
+sm:576- 767
+md:768 - 991
+lg: 992 - 1159
+xl:1200 - 1359
+
+mt : margin-top
+ml: margin-left
+mr: margin-right
+mb: margin-bottom
+
+*/
+
+.ml-auto {
+    margin-left: auto;
+}
+
+// margin and padding
+@for $i from 1 to 45 {
+    // margin top
+    .mt-#{$i*5} {
+        margin-top: $i*5px;
+    }
+    // margin bottom
+    .mb-#{$i*5} {
+        margin-bottom: $i*5px;
+    }
+    // margin left
+    .ml-#{$i*5} {
+        margin-left: $i*5px;
+    }
+    // margin right
+    .mr-#{$i*5} {
+        margin-right: $i*5px;
+    }
+    // padding top
+    .pt-#{$i*5} {
+        padding-top: $i*5px;
+    }
+    // padding bottom
+    .pb-#{$i*5} {
+        padding-bottom: $i*5px;
+    }
+    // padding left
+    .pl-#{$i*5} {
+        padding-left: $i*5px;
+    }
+    // padding left
+    .pr-#{$i*5} {
+        padding-right: $i*5px;
+    }
+}
+
+
+/*
+
+responsive css
+sm device
+*/
+
+@media all and (min-width:576px) and (max-width:767px) {
+    // margin top
+    @for $i from 1 to 45 {
+        .mt-sm-#{$i*5} {
+            margin-top: $i*5px;
+        }
+        // margin bottom
+        .mb-sm-#{$i*5} {
+            margin-bottom: $i*5px;
+        }
+        // margin left
+        .ml-sm-#{$i*5} {
+            margin-left: $i*5px;
+        }
+        // margin right
+        .mr-sm-#{$i*5} {
+            margin-right: $i*5px;
+        }
+        // padding top
+        .pt-sm-#{$i*5} {
+            padding-top: $i*5px;
+        }
+        // padding bottom
+        .pb-sm-#{$i*5} {
+            padding-bottom: $i*5px;
+        }
+        // padding left
+        .pl-sm-#{$i*5} {
+            padding-left: $i*5px;
+        }
+        // padding right
+        .pr-sm-#{$i*5} {
+            padding-right: $i*5px;
+        }
+    }
+}
+
+
+/*
+
+responsive css
+md device
+*/
+
+@media all and (min-width:768px) and (max-width:991px) {
+    // margin top
+    @for $i from 1 to 45 {
+        .mt-md-#{$i*5} {
+            margin-top: $i*5px;
+        }
+        // margin bottom
+        .mb-md-#{$i*5} {
+            margin-bottom: $i*5px;
+        }
+        // margin left
+        .ml-md-#{$i*5} {
+            margin-left: $i*5px;
+        }
+        // margin right
+        .mr-md-#{$i*5} {
+            margin-right: $i*5px;
+        }
+        // padding top
+        .pt-md-#{$i*5} {
+            padding-top: $i*5px;
+        }
+        // padding bottom
+        .pb-md-#{$i*5} {
+            padding-bottom: $i*5px;
+        }
+        // padding left
+        .pl-md-#{$i*5} {
+            padding-left: $i*5px;
+        }
+        // padding right
+        .pr-md-#{$i*5} {
+            padding-right: $i*5px;
+        }
+    }
+}
+
+
+/*
+responsive css
+lg device
+*/
+
+@media all and (min-width:992px) and (max-width:1199px) {
+    // margin top
+    @for $i from 1 to 45 {
+        .mt-lg-#{$i*5} {
+            margin-top: $i*5px;
+        }
+        // margin bottom
+        .mb-lg-#{$i*5} {
+            margin-bottom: $i*5px;
+        }
+        // margin left
+        .ml-lg-#{$i*5} {
+            margin-left: $i*5px;
+        }
+        // margin right
+        .mr-lg-#{$i*5} {
+            margin-right: $i*5px;
+        }
+        // padding top
+        .pt-lg-#{$i*5} {
+            padding-top: $i*5px;
+        }
+        // padding bottom
+        .pb-lg-#{$i*5} {
+            padding-bottom: $i*5px;
+        }
+        // padding left
+        .pl-lg-#{$i*5} {
+            padding-left: $i*5px;
+        }
+        // padding right
+        .pr-lg-#{$i*5} {
+            padding-right: $i*5px;
+        }
+    }
+}
+
+
+/*
+responsive css
+xl device
+*/
+
+@media all and (min-width:1200px) and (max-width:1400px) {
+    // margin top
+    @for $i from 1 to 45 {
+        .mt-xl-#{$i*5} {
+            margin-top: $i*5px;
+        }
+        // margin bottom
+        .mb-xl-#{$i*5} {
+            margin-bottom: $i*5px;
+        }
+        // margin left
+        .ml-xl-#{$i*5} {
+            margin-left: $i*5px;
+        }
+        // margin right
+        .mr-xl-#{$i*5} {
+            margin-right: $i*5px;
+        }
+        // padding top
+        .pt-xl-#{$i*5} {
+            padding-top: $i*5px;
+        }
+        // padding bottom
+        .pb-xl-#{$i*5} {
+            padding-bottom: $i*5px;
+        }
+        // padding left
+        .pl-xl-#{$i*5} {
+            padding-left: $i*5px;
+        }
+        // padding right
+        .pr-xl-#{$i*5} {
+            padding-right: $i*5px;
+        }
+    }
+}
+
+
+/*
+
+responsive css
+xs device
+*/
+
+@media all and (max-width:575px) {
+    // margin top
+    @for $i from 1 to 45 {
+        .mt-xs-#{$i*5} {
+            margin-top: $i*5px;
+        }
+        // margin bottom
+        .mb-xs-#{$i*5} {
+            margin-bottom: $i*5px;
+        }
+        // margin left
+        .ml-xs-#{$i*5} {
+            margin-left: $i*5px;
+        }
+        // margin right
+        .mr-xs-#{$i*5} {
+            margin-right: $i*5px;
+        }
+        // padding top
+        .pt-xs-#{$i*5} {
+            padding-top: $i*5px;
+        }
+        // padding bottom
+        .pb-xs-#{$i*5} {
+            padding-bottom: $i*5px;
+        }
+        // padding left
+        .pl-xs-#{$i*5} {
+            padding-left: $i*5px;
+        }
+        // padding right
+        .pr-xs-#{$i*5} {
+            padding-right: $i*5px;
+        }
+    }
+}
+
+
+/*
+
+/* black overlay */
+
+[data-overlay] {
+    position: relative;
+}
+
+[data-overlay]::before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    content: "";
+    height: 100%;
+    position: absolute;
+    background: #000 none repeat scroll 0 0;
+}
+
+[data-overlay="3"]::before {
+    opacity: 0.3;
+}
+
+[data-overlay="4"]::before {
+    opacity: 0.4;
+}
+
+[data-overlay="5"]::before {
+    opacity: 0.5;
+}
+
+[data-overlay="6"]::before {
+    opacity: 0.6;
+}
+
+[data-overlay="7"]::before {
+    opacity: 0.7;
+}
+
+[data-overlay="8"]::before {
+    opacity: 0.8;
+}
+
+[data-overlay="9"]::before {
+    opacity: 0.9;
+}
+
+[data-overlay="4"]::before {
+    opacity: 0.4;
+}
+
+[data-overlay="5"]::before {
+    opacity: 0.5;
+}
+
+[data-overlay="6"]::before {
+    opacity: 0.6;
+}
+
+[data-overlay="7"]::before {
+    opacity: 0.7;
+}
+
+[data-overlay="8"]::before {
+    opacity: 0.8;
+}
+
+[data-overlay="9"]::before {
+    opacity: 0.9;
+}
+
+
+/* background */
+
+.bg-cover {
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+}
+
+.bg-center {
+    background-position: center;
+}
+
+.bg-contain {
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    background-position: left;
+}
+
+.bg-right {
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.bg-left {
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.bg-bottom {
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.bg-top {
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+.bg-100 {
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.theme-primary {
+    background-color: $primary;
+}
+
+.color-primary {
+    color: $primary!important;
+}
+
+.theme-grey {
+    background-color: $secondary1!important;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    &.triangle-top-left {
+        border-top: 100px solid #32557f;
+        border-right: 100px solid transparent;
+    }
+    &.triangle-top-right {
+        border-top: 100px solid #32557f;
+        border-left: 100px solid transparent;
+    }
+    &.triangle-bottom-left {
+        border-bottom: 100px solid #32557f;
+        border-right: 100px solid transparent;
+    }
+    &.triangle-bottom-right {
+        border-bottom: 100px solid #32557f;
+        border-left: 100px solid transparent;
+    }
+}
+
+.bg-overlay {
+    position: relative;
+    z-index: 1;
+    &::before {
+        position: absolute;
+        left: 0;
+        content: "";
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: .8;
+        background-color: #000;
+        z-index: -1;
+    }
+}
+
+.fix {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.shape {
+    position: absolute;
+    @media (max-width: 1191px) {
+        display: none;
+        opacity: 0;
+    }
+}
+
+.navbar-brand {
+    padding: 0;
+    margin-right: 0;
+}
+
+#scrollUp {
+    right: 20px;
+    bottom: 20px;
+    height: 40px;
+    width: 40px;
+    color: $white;
+    font-size: 22px;
+    font-weight: 400;
+    border-radius: 50%;
+    line-height: 44px;
+    text-align: center;
+    @include transition(.4s);
+    background-color: $primary;
+    box-shadow: 0px 5px 15px 0px rgba(1, 29, 80, 0.1);
+    z-index: 2!important;
+    &:hover {
+        background-color: $dark_black;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    #scrollUp {
+        font-size: 15px;
+        height: 30px;
+        line-height: 34px;
+        right: 30px;
+        width: 30px;
+    }
+}
+
+button {
+    border: none;
+}
+
+.clear-fix {
+    overflow: hidden;
+}
+
+section {
+    position: relative;
+    z-index: 1;
+    &.pt-235 {
+        padding-top: 225px;
+    }
+}
+
+@keyframes sticky {
+    0% {
+        opacity: 0;
+        margin-top: -120px;
+    }
+    50% {
+        opacity: 0;
+        margin-top: -60px;
+    }
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+.equal {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.equal>[class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.d-none-mobile {
+    @media (max-width: 414px) {
+        display: none !important;
+    }
+}
+
+.offcanvas-overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1031;
+    position: fixed;
+    background: #000;
+    visibility: hidden;
+    transition: all .2s ease-in-out;
+    &.overlay-open {
+        opacity: 0.5;
+        visibility: visible;
+    }
+}
+
+.no-padding {
+    .col-12 {
+        padding: 0;
+    }
+}
+
+img.alignright {
+    float: right;
+    margin: 0 0 1em 1em
+}
+
+img.alignleft {
+    float: left;
+    margin: 0 1em 1em 0
+}
+
+img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+a img.alignright {
+    float: right;
+    margin: 0 0 1em 1em
+}
+
+a img.alignleft {
+    float: left;
+    margin: 0 1em 1em 0
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+// Background Image Animations
+@keyframes left-to-right {
+    0% {
+        background-position: left center;
+    }
+    100% {
+        background-position: right center;
+    }
+}
+
+@keyframes right-to-left {
+    0% {
+        background-position: right center;
+    }
+    100% {
+        background-position: left center;
+    }
+}
+
+@keyframes left-to-center {
+    0% {
+        background-position: left center;
+    }
+    100% {
+        background-position: center center;
+    }
+}
+
+@keyframes right-to-center {
+    0% {
+        background-position: right center;
+    }
+    100% {
+        background-position: center center;
+    }
+}
+
+@keyframes top-to-bottom {
+    0% {
+        background-position: center top;
+    }
+    100% {
+        background-position: center bottom;
+    }
+}
+
+@keyframes top-to-center {
+    0% {
+        background-position: center top;
+    }
+    100% {
+        background-position: center center;
+    }
+}
+
+@keyframes bottom-to-top {
+    0% {
+        background-position: center bottom;
+    }
+    100% {
+        background-position: center top;
+    }
+}
+
+@keyframes bottom-to-center {
+    0% {
+        background-position: center bottom;
+    }
+    100% {
+        background-position: center center;
+    }
+}
+
+@keyframes top-left-to-bottom-right {
+    0% {
+        background-position: left top;
+    }
+    100% {
+        background-position: right bottom;
+    }
+}
+
+@keyframes top-left-to-center {
+    0% {
+        background-position: left top;
+    }
+    100% {
+        background-position: center center;
+    }
+}
+
+@keyframes top-right-to-bottom-left {
+    0% {
+        background-position: right top;
+    }
+    100% {
+        background-position: left bottom;
+    }
+}
+
+@keyframes top-right-to-center {
+    0% {
+        background-position: right top;
+    }
+    100% {
+        background-position: center center;
+    }
+}
+
+@keyframes bottom-left-to-top-right {
+    0% {
+        background-position: left bottom;
+    }
+    100% {
+        background-position: right top;
+    }
+}
+
+@keyframes bottom-left-to-center {
+    0% {
+        background-position: left bottom;
+    }
+    100% {
+        background-position: center center;
+    }
+}
+
+@keyframes bottom-right-to-top-left {
+    0% {
+        background-position: right bottom;
+    }
+    100% {
+        background-position: left top;
+    }
+}
+
+@keyframes bottom-right-to-center {
+    0% {
+        background-position: right bottom;
+    }
+    100% {
+        background-position: center center;
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        background-position: right center;
+    }
+    100% {
+        background-position: left center;
+    }
+}
+
+$animation-list: ( left-to-right left center, right-to-left right center, left-to-center left center, right-to-center right center, top-to-bottom center top, top-to-center center top, bottom-to-top center bottom, bottom-to-center center bottom, top-left-to-bottom-right left top, top-left-to-center left top, top-right-to-bottom-left right top, top-right-to-center right top, bottom-left-to-top-right left bottom, bottom-left-to-center left bottom, bottom-right-to-top-left right bottom, bottom-right-to-center right bottom);
+@each $animation-name,
+$animation-start-x,
+$animation-start-y in $animation-list {
+    .animation {
+        &_#{$animation-name} {
+            background-position: #{$animation-start-x} #{$animation-start-y};
+            .active & {
+                animation: #{$animation-name} 5s ease 0s 1 normal forwards running;
+            }
+        }
+    }
+}
+
+
+/* Alignments
+--------------------------------------------- */
+
+.alignleft {
+    /*rtl:ignore*/
+    float: left;
+    /*rtl:ignore*/
+    margin-right: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.alignright {
+    /*rtl:ignore*/
+    float: right;
+    /*rtl:ignore*/
+    margin-left: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.aligncenter {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5em;
+}

@@ -1,0 +1,77 @@
+/*
+Template: CONSULTER - Business Consulting HTML Template
+Author: RRDevs
+Author URI: https://themeforest.net/user/rrdevs
+Description: Business Consulting HTML Template
+Developer: Sabbir Ahmmed (https://github.com/ahmmedsabbirbd)
+Version: 1.0
+*/
+
+// BASIC
+@import 'basic';
+// variables
+@import 'variables';
+// Preloader
+@import 'preloader';
+// TYPOGRAPHY
+@import 'fonts';
+@import 'typography';
+// MIX
+@import 'mix';
+// HELPER
+@import 'helper';
+// ANIMATION
+@import 'animation';
+// Button 
+@import 'btn';
+// page-load-animation
+@import 'page-load-animation';
+
+/* ----------------------------------
+    Template Section Styles
+ ------------------------------------*/
+
+// Menu - Header Section 
+@import 'header';
+// Banner 
+@import 'banner';
+// Contact Page 
+@import 'contact';
+// About Page 
+@import 'about';
+// Our Project Page
+@import 'our-project';
+// Our Project Page
+@import 'our-project-details';
+// Services 
+@import 'services';
+// Services Details
+@import 'services-details';
+// Blog Page 
+@import 'blog';
+// Sidebar Page 
+@import 'sidebar';
+// Team Page 
+@import 'team';
+// Team Details Page 
+@import 'team-details';
+// Home Page
+@import 'home';
+// Home Page 2
+@import 'home-2';
+// Home Page 2 
+@import 'home-3';
+//Home Page 5
+@import 'home-5';
+// 404 Page 
+@import '404';
+// CTA - Footer CTA Banner 
+@import 'cta';
+// Pricing Table 
+@import 'table';
+// section  
+@import 'section';
+// Dark Mode  
+@import 'darkmode';
+// footer - Section 
+@import 'footer';

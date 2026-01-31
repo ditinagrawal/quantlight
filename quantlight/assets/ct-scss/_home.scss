@@ -1,0 +1,312 @@
+.can-help-overly {
+
+    .container {
+        z-index: 1;
+        position: relative;
+
+        &:after {
+            z-index: -1;
+            content: "";
+            top: 266px;
+            left: -928px;
+            height: 1117px;
+            width: 2552.29px;
+            position: absolute;
+            background-size: auto;
+            background-image: url(assets/ct-img/home/can-overly-home.png);
+        }
+    }
+}
+
+.our-team-home-1 {
+
+    .container {
+
+        &:after {
+            content: inherit;
+        }
+    }
+}
+
+.our-portfolio-home {
+    z-index: 1;
+    position: relative;
+
+    &:after {
+        z-index: -1;
+        top: -190px;
+        left: -497px;
+        content: "";
+        height: 702px;
+        opacity: 0.4;
+        width: 2479.27px;
+        position: absolute;
+        background-size: auto;
+        background-image: url(assets/ct-img/home/our-portfolio-home-overly.png);
+    }
+
+    .mb-minus-30 {
+        margin-bottom: -30px;
+    }
+
+    &__content {
+
+        .title {
+
+            @media (max-width: 1199px) {
+                font-size: 42px;
+                line-height: 56px; 
+            }
+
+            @media (max-width: 991px) {
+                font-size: 36px;
+                line-height: 50px; 
+            }
+            
+            @media (max-width: 767px) {
+                font-size: 32px;
+                line-height: 46px; 
+                margin-bottom: 10px;
+            }
+
+            @media (max-width: 575px) {
+                font-size: 28px;
+                line-height: 42px; 
+            }
+        }
+    }
+
+    &__item {
+        box-shadow: 0px 10px 30px rgba(4, 33, 63, 0.05);
+
+        .featured-thumb {
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                @include transition(.3s);
+            }
+        }
+
+        .content {
+   
+            .left {
+                padding: 25.5px 30px;
+
+                .post-author  {
+                    
+                    a {
+                        color: $red;
+                        font-size: 12px;
+                        line-height: 18px;
+                    }
+                }
+            }
+
+            .btn-link-share {
+                
+                .theme-btn {
+                    gap:20px;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    padding: 17px 30.5px;
+                    background: #F8DDE4;
+                    flex-direction: column;
+                    background-size: cover;
+                    justify-content: center;
+                    background-repeat: no-repeat;
+
+                    &:hover, &:focus {
+                        background-color: $red;
+                        color: $white !important;
+                        background-image: url(assets/ct-img/home/theme-btn-overly-hover.png) !important;
+                    }
+
+                    i {
+                        margin: 0;
+                        font-size: 19px;
+                    }
+                }
+            }
+        }
+
+        &:hover, &:focus {
+
+            .featured-thumb {
+                
+                img {
+                    @include transform(scale(1.2))
+                }
+            }
+        }
+    }
+
+    .theme-btn {
+
+        &:after {
+            content: inherit;
+        }
+    }
+}
+
+.planning-success {
+    z-index: 1;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    &:after {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        z-index: -1;
+        position: absolute;
+        background-color: rgba(4, 33, 63, 0.8);
+    }
+
+    &__content {
+        max-width: 635px;
+
+        .title {
+
+            @media (max-width: 1199px) {
+                font-size: 42px;
+                line-height: 56px; 
+            }
+
+            @media (max-width: 991px) {
+                font-size: 36px;
+                line-height: 50px; 
+            }
+            
+            @media (max-width: 767px) {
+                font-size: 32px;
+                line-height: 46px; 
+                margin-bottom: 10px;
+            }
+
+            @media (max-width: 575px) {
+                font-size: 28px;
+                line-height: 42px; 
+            }
+        }
+    }
+
+    &__video {
+        position: relative;
+
+        &:after {
+            padding: 0;
+            width: 250px;
+            z-index: -2;
+            left: 25px;
+            top: -306px;
+            content: "";
+            height: 687px;                
+            position: absolute;
+            transform: rotate(-13.13deg);
+            background: rgba(255, 255, 255, 0.5);
+
+            @media (max-width: 575px) { 
+                content: inherit;
+            }
+        }
+        
+        .popup-video {
+            width: 80px; 
+            height: 80px; 
+            display: flex; 
+            line-height: 80px;
+            text-align: center;
+            align-items: center;
+            background: $white;  
+            border-radius: 500px;  
+            justify-content: center;
+            box-shadow: 0 0 0px 20px rgba(255, 255, 255, 0.1);; 
+            animation: playVideo5 3s linear infinite;
+
+            i {
+                margin: 0;
+                font-size: 27px;
+                @include transition(.3s);
+                color: $red !important;
+
+                &:hover {
+                    background: transparent;
+                    @include transform(scale(1.4));
+                }
+            }
+
+            @media (max-width: 767px) { 
+                width: 60px; 
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+.financial {
+
+    .mb-minus-30 {
+        margin-bottom: -30px;
+    }
+
+    &__item {
+        gap: 30px;
+        background-size: cover;
+        padding: 38.5px 30px 38.5px;
+        background-repeat: no-repeat;
+        box-shadow: 0px 10px 30px rgba(4, 33, 63, 0.05);
+
+        .icon {
+            font-size: 45px;
+
+            img {
+                width: 50px;
+                height: 50px;
+                min-width: 50px;
+            }
+        }
+    }
+}
+
+.our-company-financial {
+
+    .overly {
+
+        .container {
+            z-index: 1;
+            position: relative;
+
+            &:after {
+                top: 259px;
+                content: "";
+                z-index: -1;
+                left: -450px;
+                height: 738px;
+                width: 2314.14px;
+                position: absolute;
+                background-size: auto;
+                background-repeat: no-repeat;
+                background-image: url(assets/ct-img/home/our-company-financial-overly.svg);
+            }
+        }
+    }
+
+    .our-company {
+
+        .container {
+
+            &:after {
+                content: inherit;
+            }
+        }
+    }
+}

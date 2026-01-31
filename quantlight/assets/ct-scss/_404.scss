@@ -1,0 +1,41 @@
+.error {
+
+    &__content {
+
+        .text {
+
+            h1 {
+                font-size: 48px;
+                line-height: 60px;
+
+                @media (max-width: 991px) {
+                    font-size: 40px;
+                    line-height: 52px;
+                }
+
+                @media (max-width: 767px) {
+                    font-size: 30px;
+                    line-height: 42px;
+                }
+
+                @media (max-width: 575px) {
+                    font-size: 28px;
+                    line-height: 40px;
+                }
+            }
+
+            .description {
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .theme-btn {
+                
+                &:hover, &:focus {
+                    background: $primary;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,573 @@
+.dark{
+    background: $black !important;
+    .header-1{
+        .stop {
+            .main-header-wraper{
+                background: $black !important;
+            }
+            
+        }
+       .main-header-wraper{
+            background: $black !important;
+            ul>li{
+                >a{
+                    color: $white !important;
+                    
+                }
+                ul{
+                    background: $black !important;
+                }
+            }
+       }
+    }
+    header.header-1 .main-header-wraper .header-right .header-search .search-toggle{
+        color: $white !important;
+    }
+    header.header-1 .main-header-wraper .header-right .header-contact {
+        color: $white !important;
+        h5{
+            color: $white !important;
+        }
+    }
+    header.header-3 .top-header {
+        background: $black !important;
+    }
+    header .header-1,header .header-2,header .header-3,header .header-4,header .header-5 {
+        .top-header {
+            background: $black !important;
+        }
+    }
+    .title {
+        color: $white !important;
+       
+    }
+    .banner-home{
+        background: $black !important;
+    }
+    .banner-home__media:after {
+        top: 42px;
+        content: "";
+        z-index: -1;
+        width: 841px;
+        right: 747px;
+        height: 208px;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-image:none !important;
+    }
+    //financial-area
+    .financial {
+        .financial__item{
+            .icon{
+                svg{
+                    fill:$white !important;
+                }
+            }
+            h6,p{
+                color: $white !important;
+            }
+        }
+    }
+    //our-company
+    .our-company{
+        span,h5,h2,p{
+            color: $white !important;
+        }
+        .number{
+            color: $white !important;
+        }
+        .client-feedback__item-header{
+            span{
+                color: $red !important;
+            }
+        }
+    }
+    //planning-success
+    .planning-success{
+        .popup-video{
+            background: $black !important;
+        }
+        &::after{
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: "";
+            z-index: -1;
+            position: absolute;
+            background-color: rgba(0,0,0, 0.8) !important;
+        }
+    }
+    //why-choose start
+    .why-choose{
+        p,i,a{
+            color: $white !important;
+        }
+    }
+    //get-free
+    .get-free{
+
+    }
+    //work-process
+    .work-process{
+        &.bg-dark_red{
+            background: $black !important;
+        }
+        .work-process__item{
+            &::after {
+                right: -22px;
+                color: #ffffff;
+                font-size: 18px;
+                content: "\f178";
+                font-family: "Font Awesome 5 Pro";
+                position: absolute;
+                top: calc(50% - 13px);
+            }
+            button{
+                color: $black !important;
+            }
+            .text{
+                h6,p{
+                    color: $black !important;
+                }
+            }
+        }
+    }
+    //our-portfolio-home
+    .our-portfolio-home{
+        .content{
+            a,p{
+                color: $white !important;
+            }
+            .btn-link-share{
+                a{
+                    color: $black !important;
+                }
+            }
+        }
+        .our-portfolio-home__read-more {
+            a{
+                border: 1px solid $white !important;
+                color: $white;
+            }
+        }
+    }
+    //our-team
+    .our-team{
+        &.bg-dark_red{
+            background: $black !important;
+        }
+    }
+    .testimonial-item-three{
+        background: $red;
+
+        .testimonial__item {
+
+            &-header {
+
+                .right i {
+                    color: rgba(255, 255, 255, 0.2);
+                }
+
+                .left {
+
+                    .meta {
+
+                        .name, .position {
+                            color: $white !important;
+                        }
+                    }
+                }
+            }
+
+            &-footer {
+
+                .socail-link {
+                    
+                    span {
+                        color: $white !important;
+                    }
+                }
+            }
+        }
+
+        .starts {
+
+            ul { 
+                li {
+                    
+                    span {
+                        filter: brightness(0) invert(1); 
+                    }
+                }
+            }
+        }
+
+        .description {
+            color: $white !important;
+        }
+    }
+    //can-help-overly-home
+    .can-help-overly-home{
+        .can-help-background{
+            &::after {
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: -1;
+                height: 100%;
+                content: "";
+                position: absolute;
+                background: rgba(0,0,0, 0.8) !important;
+            }
+        }
+       
+        .contact-form{
+            background: $black !important;
+            input,textarea{
+                color: $white !important;
+                border: 1px solid $white;
+                background: transparent !important;
+                &::placeholder{
+                    color: #666666;
+                }
+            }
+
+        }
+    }
+    .footer-1{
+        background-image:none !important;
+        background: $black !important;
+        &::after{
+            display: none !important;
+        }
+        .footer-top__box-wrapper{
+            &::after{
+                top: 0;
+                left: 0;
+                content: "";
+                z-index: -1;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                background-color: rgba(0,0,0, 0.8);
+            }
+        }
+    }
+
+
+    //home page 2
+    .about-us {
+        p{
+            color: $white !important;
+        }
+    }
+    //similar-work 
+    .similar-work {
+        background: $black;
+        .similar-work__item{
+            .title {
+                color: $primary !important;
+            }
+        }
+    }
+
+    .number,.description {
+        color: $white !important;
+    }
+    //.our-team.our-porfolio:after
+    .our-team.our-porfolio{
+        .content{
+            &::after{
+                top: 0;
+                left: 0;
+                z-index: -1;
+                content: "";
+                width: 100%;
+                height: 638px;
+                overflow: hidden;
+                position: absolute;
+                background: #ffffff;
+            }
+        }
+        .text{
+            h5{
+                color: #000 !important;
+            }
+        }
+        &::after{
+            top: 0;
+            left: 0;
+            z-index: -1;
+            content: "";
+            width: 100%;
+            height: 638px;
+            overflow: hidden;
+            position: absolute;
+            background-size: auto;
+            background-repeat: no-repeat;
+            background-position: center;
+            background: #000;
+            background-image: url(assets/ct-img/portfolio/our-portfolio-bg.png);
+        }
+    }
+    //our-team 
+    .our-team {
+        background: $black !important;
+    }
+    //work-process 
+    .work-process {
+        .work-process__item button {
+            color:#ffffff !important;
+        }
+    }
+    //testimonial
+    .testimonial{
+        background: $black !important;
+        .testimonial__item{
+            background: #EF0548 !important;
+            .description{
+                p{
+                    color: #fff !important;
+                }
+            }
+        }
+        .testimonial-item-two {
+            background: $primary1;
+
+            .testimonial__item {
+
+                &-header {
+
+                    .right i {
+                        color: rgba(255, 255, 255, 0.2);
+                    }
+
+                    .left {
+
+                        .meta {
+                            .name, .position {
+                                color: $white !important;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .description {
+                color: $white !important;
+            }
+        }
+    }
+    .chart {
+        color: #ffffff !important;
+    }
+
+
+    //home page 3
+    .banner{
+        p{
+            color: #ffffff !important;
+        }
+        &::after {
+            top: 0;
+            left: 0;
+            width: 100%;
+            content: "";
+            height: 100%;
+            z-index: -1;
+            position: absolute;
+            background: linear-gradient(90deg, rgba(8, 8, 8, 0.85) 0%, rgba(63, 56, 56, 0) 61.17%);
+        }
+    }
+    .counter-area__item{
+        background: #000 !important;
+    }
+    .competitive-edge__item{
+        background: #000 !important;
+    }
+    .bg-dark_white{
+        background: #000 !important;
+        .our-project__item{
+            .content,.text{
+                background: #000 !important;
+            }
+        }
+    }
+    //home page 4
+
+    .dark_header{
+        .main_wrapper{
+            background: #000 !important;
+        }
+    }
+
+    .section-title{
+        p,h2,h3,h1{
+            color: $white !important;
+        }
+    }
+    //banner__2
+    .banner__2{
+        &::after {
+            top: 0;
+            left: 0;
+            width: 100%;
+            content: "";
+            height: 100%;
+            z-index: -1;
+            position: absolute;
+            background: rgba(0,0,0, 0.6) !important;
+        }
+    }
+    .competitive-edge__item.competitive-edge__item_2::after {
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0%;
+        height: 100%;
+        width: 100%;
+        content: "";
+        clear: both;
+        display: flex;background: linear-gradient(270deg, rgba(0,0,0, 0.96) 0%, rgba(64, 105, 255, 0.7) 190.8%);
+        border-radius: 6px;
+    }
+    .service_info{
+        >li{
+            color: $white !important;
+            &::after {
+                content: "\f14a";
+                font-family: "Font Awesome 5 Pro";
+                font-weight: 500;
+                clear: both;
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                color: $white !important;
+            }
+        }
+    }
+    .area__item{
+        background: #ffffff;
+        .number,.description{
+            color: #000000 !important;
+        }
+    }
+    .author_name{
+        h5,p{
+            color: $white !important;
+        }
+    }
+
+    .protfolio_wrapper{
+        background: #000 !important;
+        h4,p{
+            color: $white !important;
+        }
+    }
+    .slider-item{
+        .testimonial-slider,.testimonial__item{
+            background: #ffffff;
+            h5,p{
+                color: $black !important;
+            }
+        }
+    }
+   .client-brand{
+    background: #000 !important;
+   }
+   .delivery__wrapper{
+        &::before {
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            content: "";
+            position: absolute;
+            background: rgba(9, 9, 9, 0.7);
+        }
+        .counter-area__item.counter-area__item-three{
+            background-color: #000 !important;
+        }
+        .theme-btn{
+            color: $black !important;
+        }
+   }
+   .can-help {
+        background: #000 !important;
+        .text{
+            span,h5{
+                color: $white !important;
+            }
+        }
+    
+    }
+   .our-porfolio__slider__2{
+        .our-project__item{
+            .content,.text{
+                background: #000 !important;
+            }
+        }
+    }
+    //home page 5
+    .fauture__widget{
+        background: #000 !important;
+        .fauture__content{
+            h4,p{
+                color: $white !important;
+            }
+        }
+        .fauture__icons{
+            h4{
+                color:#000 !important;
+            }
+        }
+    }
+    .about__wrapper{
+        h5,p{
+            color: #ffffff !important;
+        }
+        .number{
+            span,h5{
+                color: #000 !important;
+            }
+        }
+    }
+    .process__widget{
+        h4,p{
+            color: #ffffff !important;
+        }
+    }
+    .portfolio_wrapper {
+        .section-title {
+            h2{
+                color: #000 !important;
+            }
+        }
+    }
+    .fun-fact_wrapper{
+        .counter-area__item{
+            background: transparent !important;
+        }
+    }
+    .why-choose {
+        .accordion-item{
+            button{
+                background-color: #FF9C00 !important;
+            }
+            color: $white !important;
+        }
+    }
+    .team_wrapper{
+        background-image: none !important;
+    }
+    .testimonial_wrapper{
+        .slingle_agent{
+           h4,h5,p{
+            color: $white !important;
+           }
+        }
+    }
+}

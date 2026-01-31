@@ -1,0 +1,77 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.3 buttons
+/*----------------------------------------*/
+
+// Common button
+
+.rr-btn {
+    z-index: 1;
+    gap: 17px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 500px;
+    padding: 16px 37.8px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    color: var(--rr-heading-primary);
+    background-color: var(--rr-theme-primary);
+
+    i {
+        font-size: 20px;
+    }
+
+    span {
+        height: 0;
+        width: 0;
+        z-index: -1;
+        display: block;
+        border-radius: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        transition: width 0.9s ease 0s, height 0.9s ease 0s;
+        background: var(--rr-heading-primary) none repeat scroll 0 0;
+    }
+
+    &:hover {
+        background-color: transparent;
+        color: var(--rr-common-white);
+
+        span {
+            height: 562.5px;
+            width: 562.5px;
+        }
+    }
+
+    &.black-btn {
+        padding: 16px 38px;
+        color: var(--rr-common-white);
+        background: var(--rr-heading-primary);
+
+        span {
+            background: var(--rr-theme-primary);
+        }
+
+        &:hover {
+            color: var(--rr-heading-primary);
+        }
+    }
+
+    &_2 {
+        padding: 14px 28px;
+        color: var(--rr-common-white);
+        background-color: var(--rr-heading-primary);
+        span{
+            background-color: var(--rr-theme-primary-3);
+        }
+        &:hover{
+            color: var(--rr-heading-primary);
+        }
+    }
+
+}

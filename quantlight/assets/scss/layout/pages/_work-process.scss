@@ -1,0 +1,280 @@
+@use "../../utils" as *;
+
+
+// work-process
+.work-process {
+    &__wrapper {
+        display: flex;
+        align-items: center;
+
+        @media #{$lg,$md,$sm,$xs} {
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__item {
+        width: 410px;
+        height: 410px;
+        z-index: 1;
+        position: relative;
+        border-radius: 500px;
+        margin-left: -172px;
+        overflow: hidden;
+        padding: 102px 44px 98px 84px;
+        background-color: var(--rr-common-white);
+        border: 1.5px solid rgb(244 211 154 / 70%);
+
+        @media #{$xl} {
+            width: 380px;
+            height: 380px;
+            padding: 90px 20px 50px 60px;
+        }
+
+        @media #{$md} {
+            width: 360px;
+            height: 360px;
+            padding: 50px 35px 60px 75px;
+        }
+
+        @media #{$lg,$md,$sm,$xs} {
+            margin-left: 0;
+            margin: 0 auto;
+        }
+
+        @media #{$xs} {
+            width: auto;
+            height: auto;
+            overflow: visible;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        &:first-of-type {
+            margin-left: 0;
+
+            @media #{$lg,$md,$sm,$xs} {
+                margin: 0 auto;
+            }
+        }
+
+        p {
+            font-weight: 300;
+        }
+
+        &:hover {
+            z-index: 9;
+
+            .work-process {
+                &__bg {
+                    &__thumb {
+                        transform: scale(1);
+                    }
+
+                    &__shape {
+                        transform: scale(1);
+                    }
+                }
+
+                &__title {
+                    color: var(--rr-common-white);
+
+                    @media #{$xs} {
+                        color: var(--rr-heading-primary);
+                    }
+                }
+
+                &__logo {
+                    span {
+                        svg [fill="white"] {
+                            fill: var(--rr-theme-primary);
+                            transition: all 0.3s ease-in-out;
+                        }
+                    }
+                }
+            }
+
+            p {
+                color: rgba(255, 255, 255, 0.7);
+
+                @media #{$xs} {
+                    color: var(--rr-heading-primary);
+                }
+            }
+        }
+    }
+
+    &__title {
+        font-weight: 400;
+        font-size: 26px;
+        line-height: 35px;
+        margin-bottom: 10px;
+        margin-top: 30px;
+        transition: all 0.3s ease-in-out;
+        color: var(--rr-heading-primary);
+    }
+
+    &__bg {
+        &__thumb {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transform: scale(0);
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+
+            @media #{$xl} {
+                left: -15px;
+            }
+
+            @media #{$md} {
+                top: -10px;
+                left: -10px;
+            }
+
+            @media #{$xs} {
+                display: none;
+            }
+        }
+
+        &__shape {
+            left: 0;
+            top: 0;
+            z-index: -1;
+            width: 410px;
+            height: 410px;
+            transform: scale(0);
+            position: absolute;
+            border-radius: 500px;
+            transition: all 0.3s ease-in-out;
+            background: rgba(31, 49, 48, 0.8);
+            border: 1.5px solid rgba(244, 211, 154, 0.7);
+
+            @media #{$xl} {
+                left: -15px;
+            }
+
+            @media #{$md} {
+                top: -10px;
+                left: -10px;
+            }
+
+            @media #{$xs} {
+                display: none;
+            }
+        }
+    }
+}
+
+// works-section-3
+.works-section-3 {
+    &__item {
+        padding: 60px;
+        padding-bottom: 0;
+        margin-left: -1px;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        border: 1px solid rgba(25, 41, 41, 0.1);
+
+        @media #{$xl} {
+            padding: 40px;
+        }
+
+        @media #{$lg} {
+            padding: 17px;
+        }
+
+        @media #{$md} {
+            padding: 28px;
+        }
+
+        @media #{$sm} {
+            padding: 30px;
+        }
+
+        @media #{$xs} {
+            padding: 15px;
+        }
+
+        &:hover {
+            border-color: var(--rr-theme-primary);
+            background-color: var(--rr-theme-primary);
+
+            .works-section-3 {
+                &__icon {
+                    border: 4px solid var(--rr-common-white);
+                    background-color: var(--rr-theme-primary);
+                }
+            }
+        }
+    }
+
+    &__dot {
+        gap: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+            width: 10px;
+            height: 10px;
+            border-radius: 30px;
+            background-color: rgba(25, 41, 41, 0.1);
+
+            &.dot_bg {
+                background-color: var(--rr-heading-primary);
+            }
+        }
+    }
+
+    &__title {
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 35px;
+        margin-top: 60px;
+        margin-bottom: 4px;
+        color: var(--rr-heading-primary);
+
+        @media #{$lg,$xs} {
+            font-size: 20px;
+            line-height: 30px;
+        }
+    }
+
+    &__dec {
+        font-size: 16px;
+        line-height: 26px;
+        margin-bottom: 25px;
+
+        @media #{$sm,$xs} {
+            br {
+                display: none;
+            }
+        }
+    }
+
+    &__icon {
+        width: 106px;
+        height: 106px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 500px;
+        margin: 0 auto;
+        margin-bottom: -53px;
+        transition: all 0.3s ease-in-out;
+        background: var(--rr-common-white);
+        border: 1px solid rgb(25 41 41 / 10%);
+
+        @media #{$xl} {
+            margin-bottom: -80px;
+        }
+    }
+}
+
+.mb-minus-50 {
+    margin-bottom: -50px;
+}
