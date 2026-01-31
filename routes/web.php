@@ -332,6 +332,8 @@ Route::get('/citations', function () {
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('citations', \App\Http\Controllers\Admin\CitationController::class);
     Route::resource('researches', \App\Http\Controllers\Admin\ResearchController::class);
+    Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class);
+    Route::resource('webinars', \App\Http\Controllers\Admin\WebinarController::class);
     Route::post('ckeditor/upload', [\App\Http\Controllers\Admin\CkeditorImageUploadController::class, 'upload'])->name('ckeditor.upload');
     Route::get('contact-submissions', [\App\Http\Controllers\Admin\ContactSubmissionController::class, 'index'])->name('contact-submissions.index');
     Route::get('contact-submissions/{id}', [\App\Http\Controllers\Admin\ContactSubmissionController::class, 'show'])->name('contact-submissions.show');
