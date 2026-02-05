@@ -125,10 +125,141 @@ if (!function_exists('serveQuantLightHtml')) {
     }
 }
 
+// Returns processed HTML content string (for injection before returning response)
+if (!function_exists('getQuantLightHtmlContent')) {
+    function getQuantLightHtmlContent($htmlFile) {
+        $filePath = public_path('quantlight/' . $htmlFile);
+        if (!file_exists($filePath)) {
+            throw new \Exception("File not found: {$htmlFile}");
+        }
+        $content = file_get_contents($filePath);
+        if ($content === false) {
+            throw new \Exception("Could not read file: {$htmlFile}");
+        }
+        $content = str_replace('href="assets/', 'href="/quantlight/assets/', $content);
+        $content = str_replace("href='assets/", "href='/quantlight/assets/", $content);
+        $content = str_replace('src="assets/', 'src="/quantlight/assets/', $content);
+        $content = str_replace("src='assets/", "src='/quantlight/assets/", $content);
+        $content = str_replace('data-background="assets/', 'data-background="/quantlight/assets/', $content);
+        $content = str_replace("data-background='assets/", "data-background='/quantlight/assets/", $content);
+        $content = str_replace('data-bg="assets/', 'data-bg="/quantlight/assets/', $content);
+        $content = preg_replace('/(data-[^=]+)=["\']assets\//', '$1="/quantlight/assets/', $content);
+        $content = preg_replace('/url\(["\']?assets\//', 'url("/quantlight/assets/', $content);
+        $csrfToken = csrf_token();
+        $csrfMetaTag = '<meta name="csrf-token" content="' . $csrfToken . '">';
+        if (strpos($content, 'name="csrf-token"') === false) {
+            if (preg_match('/<head[^>]*>/i', $content)) {
+                $content = preg_replace('/(<head[^>]*>)/i', '$1' . "\n    " . $csrfMetaTag, $content);
+            } elseif (preg_match('/<\/head>/i', $content)) {
+                $content = preg_replace('/(<\/head>)/i', '    ' . $csrfMetaTag . "\n$1", $content);
+            }
+        }
+        $pageMap = [
+            'index.html' => '/',
+            'about-us.html' => '/about',
+            'contact.html' => '/contact',
+            'privacy-policy.html' => '/privacy',
+            'privacy.html' => '/privacy',
+        ];
+        foreach ($pageMap as $oldLink => $newLink) {
+            $content = str_replace('href="' . $oldLink, 'href="' . $newLink, $content);
+            $content = str_replace("href='" . $oldLink, "href='" . $newLink, $content);
+        }
+        $footerServiceLinks = [
+            'href="services-1.html"' => 'href="/about"',
+            "href='services-1.html'" => "href='/about'",
+            'href="services-2.html"' => 'href="/mbbs-india"',
+            "href='services-2.html'" => "href='/mbbs-india'",
+            'href="services-3.html"' => 'href="/mba-india"',
+            "href='services-3.html'" => "href='/mba-india'",
+            'href="study-in-india.html"' => 'href="/about"',
+            "href='study-in-india.html'" => "href='/about'",
+            'href="study-abroad.html"' => 'href="/study-abroad-guidance"',
+            "href='study-abroad.html'" => "href='/study-abroad-guidance'",
+            'href="engineering-india.html"' => 'href="/engineering-india"',
+            "href='engineering-india.html'" => "href='/engineering-india'",
+            'href="mbbs-india.html"' => 'href="/mbbs-india"',
+            "href='mbbs-india.html'" => "href='/mbbs-india'",
+            'href="mba-india.html"' => 'href="/mba-india"',
+            "href='mba-india.html'" => "href='/mba-india'",
+        ];
+        foreach ($footerServiceLinks as $oldLink => $newLink) {
+            $content = str_replace($oldLink, $newLink, $content);
+        }
+        $quickLinksMap = [
+            'href="about-us.html"' => 'href="/about"',
+            "href='about-us.html'" => "href='/about'",
+            'href="webinars.html"' => 'href="/webinars"',
+            "href='webinars.html'" => "href='/webinars'",
+            'href="blog.html"' => 'href="/news"',
+            "href='blog.html'" => "href='/news'",
+            'href="news.html"' => 'href="/news"',
+            "href='news.html'" => "href='/news'",
+            'href="contact.html"' => 'href="/contact"',
+            "href='contact.html'" => "href='/contact'",
+            'href="privacy-policy.html"' => 'href="/privacy"',
+            "href='privacy-policy.html'" => "href='/privacy'",
+            'href="privacy.html"' => 'href="/privacy"',
+            "href='privacy.html'" => "href='/privacy'",
+        ];
+        foreach ($quickLinksMap as $oldLink => $newLink) {
+            $content = str_replace($oldLink, $newLink, $content);
+        }
+        $content = preg_replace('/href=["\']([^"\']+)\.html([^"\']*)["\']/', 'href="$1$2"', $content);
+        return $content;
+    }
+}
+
 // Serve static HTML files from quantlight folder
 Route::get('/', function () {
     try {
-        return serveQuantLightHtml('index.html');
+        $content = getQuantLightHtmlContent('index.html');
+        $labUpdates = \App\Models\LabUpdate::published()
+            ->orderBy('sort_order')
+            ->orderBy('published_date', 'desc')
+            ->get();
+
+        if ($labUpdates->isNotEmpty()) {
+            $slidesHtml = '';
+            foreach ($labUpdates as $item) {
+                $imgSrc = $item->image
+                    ? (str_contains($item->image, 'quantlight/') ? '/' . $item->image : asset('public/' . $item->image))
+                    : '';
+                $linkUrl = $item->link ? e($item->link) : '/news';
+                $dateStr = $item->published_date?->format('m/d/Y') ?? '';
+                $categoriesHtml = '';
+                foreach ($item->categories_array as $cat) {
+                    $categoriesHtml .= '<span>' . e($cat) . '</span>';
+                }
+                $slidesHtml .= '
+                  <div class="swiper-slide">
+                    <div class="blog-section-4__item">
+                      <div class="blog-section-4__thumb">
+                        <a href="' . $linkUrl . '">
+                          <img src="' . ($imgSrc ?: '/quantlight/assets/img/blog1.png') . '" alt="' . e($item->title) . '" />
+                        </a>
+                      </div>
+                      <div class="blog-section-4__content">
+                        <div class="blog-section-4__cat">' . $categoriesHtml . '</div>
+                        <h3 class="blog-section-4__title">
+                          <a href="' . $linkUrl . '">' . e($item->title) . '</a>
+                        </h3>
+                        <div class="blog-section-4__date"><span>' . e($dateStr) . '</span></div>
+                        <div class="blog-section-4__btn">
+                          <a href="' . $linkUrl . '">READ MORE <i class="fa-light fa-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+';
+            }
+
+            // Target only the "Latest discoveries" blog section (blog-section-4), not other swiper-wrappers on the page
+            $pattern = '/(<div class="swiper blog-section-4__active">\s*<div class="swiper-wrapper">)(.*?)(<\/div>\s*<\/div>\s*<\/div>\s*<\/section>)/s';
+            $content = preg_replace($pattern, '$1' . $slidesHtml . '$3', $content, 1);
+        }
+
+        return Response::make($content)->header('Content-Type', 'text/html');
     } catch (\Exception $e) {
         \Log::error("Error serving index.html: " . $e->getMessage());
         abort(500, $e->getMessage());
@@ -329,6 +460,7 @@ Route::get('/citations', function () {
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('citations', \App\Http\Controllers\Admin\CitationController::class);
+    Route::resource('lab-updates', \App\Http\Controllers\Admin\LabUpdateController::class);
     Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class);
     Route::resource('webinars', \App\Http\Controllers\Admin\WebinarController::class);
     Route::post('ckeditor/upload', [\App\Http\Controllers\Admin\CkeditorImageUploadController::class, 'upload'])->name('ckeditor.upload');

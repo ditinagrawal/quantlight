@@ -173,6 +173,33 @@
                             </ul>
                         </li>
 
+                        <!-- Lab Updates (Discoveries) -->
+                        <li class="nav-item {{ request()->routeIs('admin.lab-updates.*') ? 'menu-open' : '' }}">
+                            <a href="#" class="nav-link {{ request()->routeIs('admin.lab-updates.*') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-flask"></i>
+                                <p>
+                                    Lab Updates
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.lab-updates.index') }}"
+                                        class="nav-link {{ request()->routeIs('admin.lab-updates.index') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>All Lab Updates</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.lab-updates.create') }}"
+                                        class="nav-link {{ request()->routeIs('admin.lab-updates.create') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add New</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
                         <!-- Contact Submissions -->
                         <li class="nav-item">
                             <a href="{{ route('admin.contact-submissions.index') }}"
