@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
 use App\Models\Citation;
-use App\Models\Research;
 
 // Helper function to serve HTML files with corrected asset paths
 if (!function_exists('serveQuantLightHtml')) {
@@ -269,10 +268,9 @@ Route::middleware('auth')->group(function () {
 // Contact form submission
 Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
 
-// Researches/Capabilities routes
+// Researches/Capabilities routes (static page)
 Route::get('/researches-capabilities', function () {
-    $researches = Research::where('is_published', true)->latest()->get();
-    return view('researches.index', compact('researches'));
+    return serveQuantLightHtml('researches-capabilities.html');
 });
 
 // Citations/Publications route with dynamic content
@@ -331,7 +329,6 @@ Route::get('/citations', function () {
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('citations', \App\Http\Controllers\Admin\CitationController::class);
-    Route::resource('researches', \App\Http\Controllers\Admin\ResearchController::class);
     Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class);
     Route::resource('webinars', \App\Http\Controllers\Admin\WebinarController::class);
     Route::post('ckeditor/upload', [\App\Http\Controllers\Admin\CkeditorImageUploadController::class, 'upload'])->name('ckeditor.upload');
@@ -341,7 +338,6 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 });
 
 // Catch-all route for other HTML pages in quantlight (must be last)
-// This also handles dynamic research detail pages at root level (e.g., /surface-light-processing)
 Route::get('/{page}', function ($page) {
     // Skip if the page contains a slash (it's an asset path) or has a file extension other than .html
     if (strpos($page, '/') !== false) {
@@ -353,19 +349,7 @@ Route::get('/{page}', function ($page) {
         abort(404);
     }
     
-    // Remove .html extension if present for slug lookup
-    $slug = $page;
-    if (substr($slug, -5) === '.html') {
-        $slug = substr($slug, 0, -5);
-    }
-    
-    // First, check if this is a dynamic research page
-    $research = Research::where('slug', $slug)->where('is_published', true)->first();
-    if ($research) {
-        return view('researches.show', compact('research'));
-    }
-    
-    // Otherwise, try to serve the static HTML file
+    // Serve the static HTML file
     $htmlFile = $page;
     if (substr($htmlFile, -5) !== '.html') {
         $htmlFile = $page . '.html';

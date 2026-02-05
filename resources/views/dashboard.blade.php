@@ -8,10 +8,7 @@
         $totalCitations = \App\Models\Citation::count();
         $publishedCitations = \App\Models\Citation::where('is_published', true)->count();
         $draftCitations = \App\Models\Citation::where('is_published', false)->count();
-        $totalResearches = \App\Models\Research::count();
-        $publishedResearches = \App\Models\Research::where('is_published', true)->count();
         $recentCitations = \App\Models\Citation::latest('published_date')->take(5)->get();
-        $recentResearches = \App\Models\Research::latest()->take(5)->get();
         $totalContacts = \App\Models\ContactSubmission::count();
         $recentContacts = \App\Models\ContactSubmission::latest()->take(5)->get();
     @endphp
@@ -43,21 +40,6 @@
                     <i class="fas fa-check-circle"></i>
                 </div>
                 <a href="{{ route('admin.citations.index') }}" class="small-box-footer">
-                    More info <i class="fas fa-arrow-circle-right"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-6">
-            <div class="small-box bg-info">
-                <div class="inner">
-                    <h3>{{ $totalResearches }}</h3>
-                    <p>Total Researches</p>
-                </div>
-                <div class="icon">
-                    <i class="fas fa-flask"></i>
-                </div>
-                <a href="{{ route('admin.researches.index') }}" class="small-box-footer">
                     More info <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
@@ -146,70 +128,6 @@
             </div>
         </div>
 
-        <!-- Recent Researches -->
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-header border-transparent">
-                    <h3 class="card-title">
-                        <i class="fas fa-flask mr-2"></i>
-                        Recent Researches
-                    </h3>
-                    <div class="card-tools">
-                        <a href="{{ route('admin.researches.create') }}" class="btn btn-primary btn-sm">
-                            <i class="fas fa-plus"></i> New
-                        </a>
-                    </div>
-                </div>
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table class="table m-0">
-                            <thead>
-                                <tr>
-                                    <th>Title</th>
-                                    <th>Created</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse($recentResearches as $research)
-                                    <tr>
-                                        <td>
-                                            <a href="{{ route('admin.researches.edit', $research->id) }}" class="text-dark">
-                                                <strong>{{ Str::limit($research->title, 35) }}</strong>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <small class="text-muted">
-                                                {{ $research->created_at?->format('M d, Y') ?? 'N/A' }}
-                                            </small>
-                                        </td>
-                                        <td>
-                                            @if($research->is_published)
-                                                <span class="badge badge-success">Published</span>
-                                            @else
-                                                <span class="badge badge-warning">Draft</span>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="3" class="text-center text-muted py-4">
-                                            <i class="fas fa-flask fa-2x mb-2"></i><br>
-                                            No researches yet. <a href="{{ route('admin.researches.create') }}">Create one!</a>
-                                        </td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="card-footer clearfix">
-                    <a href="{{ route('admin.researches.index') }}" class="btn btn-sm btn-info float-right">
-                        View All <i class="fas fa-arrow-circle-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Contact Submissions Row -->
@@ -300,21 +218,21 @@
                             </a>
                         </div>
                         <div class="col-6 mb-3">
-                            <a href="{{ route('admin.researches.create') }}" class="btn btn-info btn-block btn-lg">
-                                <i class="fas fa-flask mb-2" style="font-size: 28px; display: block;"></i>
-                                <small>New Research</small>
-                            </a>
-                        </div>
-                        <div class="col-6 mb-3">
                             <a href="/citations" target="_blank" class="btn btn-success btn-block btn-lg">
                                 <i class="fas fa-eye mb-2" style="font-size: 28px; display: block;"></i>
                                 <small>Citations Page</small>
                             </a>
                         </div>
                         <div class="col-6 mb-3">
-                            <a href="/researches-capabilities" target="_blank" class="btn btn-warning btn-block btn-lg">
+                            <a href="/researches-capabilities" target="_blank" class="btn btn-info btn-block btn-lg">
                                 <i class="fas fa-microscope mb-2" style="font-size: 28px; display: block;"></i>
                                 <small>Researches Page</small>
+                            </a>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <a href="{{ route('admin.contact-submissions.index') }}" class="btn btn-warning btn-block btn-lg">
+                                <i class="fas fa-envelope mb-2" style="font-size: 28px; display: block;"></i>
+                                <small>Contacts</small>
                             </a>
                         </div>
                     </div>
@@ -333,7 +251,7 @@
                     </p>
                     <ul class="text-white-50 mb-0" style="list-style: none; padding-left: 0;">
                         <li><i class="fas fa-check-circle mr-2"></i> Manage citations & publications</li>
-                        <li><i class="fas fa-check-circle mr-2"></i> Create research capabilities</li>
+                        <li><i class="fas fa-check-circle mr-2"></i> View contact submissions</li>
                         <li><i class="fas fa-check-circle mr-2"></i> Update publication links</li>
                     </ul>
                 </div>
@@ -349,15 +267,11 @@
                 </div>
                 <div class="card-body">
                     <div class="row text-center">
-                        <div class="col-4 mb-3">
+                        <div class="col-6 mb-3">
                             <h4 class="mb-0 text-primary">{{ $totalCitations }}</h4>
                             <small class="text-muted">Citations</small>
                         </div>
-                        <div class="col-4 mb-3">
-                            <h4 class="mb-0 text-info">{{ $totalResearches }}</h4>
-                            <small class="text-muted">Researches</small>
-                        </div>
-                        <div class="col-4 mb-3">
+                        <div class="col-6 mb-3">
                             <h4 class="mb-0 text-warning">{{ $totalContacts }}</h4>
                             <small class="text-muted">Contacts</small>
                         </div>

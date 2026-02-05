@@ -173,33 +173,6 @@
                             </ul>
                         </li>
 
-                        <!-- Researches -->
-                        <li class="nav-item {{ request()->routeIs('admin.researches.*') ? 'menu-open' : '' }}">
-                            <a href="#" class="nav-link {{ request()->routeIs('admin.researches.*') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-flask"></i>
-                                <p>
-                                    Researches
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.researches.index') }}"
-                                        class="nav-link {{ request()->routeIs('admin.researches.index') ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>All Researches</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.researches.create') }}"
-                                        class="nav-link {{ request()->routeIs('admin.researches.create') ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add New Research</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
                         <!-- Contact Submissions -->
                         <li class="nav-item">
                             <a href="{{ route('admin.contact-submissions.index') }}"
