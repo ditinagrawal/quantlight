@@ -36,6 +36,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="content">Content <span class="text-danger">*</span></label>
+                            <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror">{{ old('content', $labUpdate->content) }}</textarea>
+                            @error('content')
+                                <span class="invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
                             <label for="categories">Categories / Tags</label>
                             <input type="text" name="categories" id="categories" class="form-control @error('categories') is-invalid @enderror" value="{{ old('categories', $labUpdate->categories) }}" placeholder="e.g. Photonics, Vector Beams">
                             @error('categories')
@@ -52,12 +60,6 @@
                                     @error('published_date')
                                         <span class="invalid-feedback">{{ $message }}</span>
                                     @enderror
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="sort_order">Sort order</label>
-                                    <input type="number" name="sort_order" id="sort_order" class="form-control" value="{{ old('sort_order', $labUpdate->sort_order) }}">
                                 </div>
                             </div>
                         </div>
@@ -120,4 +122,80 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+<!-- CKEditor (same as Blogs) -->
+<script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
+<script>
+    class CustomUploadAdapter {
+        constructor(loader) { this.loader = loader; }
+        upload() {
+            return this.loader.file.then(file => new Promise((resolve, reject) => {
+                this._initRequest();
+                this._initListeners(resolve, reject, file);
+                this._sendRequest(file);
+            }));
+        }
+        abort() { if (this.xhr) this.xhr.abort(); }
+        _initRequest() {
+            const xhr = this.xhr = new XMLHttpRequest();
+            xhr.open('POST', '{{ route("admin.ckeditor.upload") }}', true);
+            xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
+            xhr.setRequestHeader('Accept', 'application/json');
+            xhr.responseType = 'json';
+        }
+        _initListeners(resolve, reject, file) {
+            const xhr = this.xhr;
+            const loader = this.loader;
+            const genericErrorText = `Couldn't upload file: ${file.name}.`;
+            xhr.addEventListener('error', () => reject(genericErrorText));
+            xhr.addEventListener('abort', () => reject());
+            xhr.addEventListener('load', () => {
+                if (xhr.status !== 200) return reject(`Upload failed with status ${xhr.status}`);
+                const response = xhr.response;
+                if (!response) return reject('Invalid response from server');
+                if (!response.uploaded || response.error) {
+                    const errorMsg = response.error && response.error.message ? response.error.message : (response.error || 'Upload failed');
+                    return reject(errorMsg);
+                }
+                let imageUrl = response.url;
+                if (!imageUrl) return reject('No URL returned from server');
+                if (!imageUrl.startsWith('http://') && !imageUrl.startsWith('https://')) {
+                    imageUrl = window.location.origin + (imageUrl.startsWith('/') ? imageUrl : '/' + imageUrl);
+                }
+                resolve({ default: imageUrl });
+            });
+            if (xhr.upload) {
+                xhr.upload.addEventListener('progress', evt => {
+                    if (evt.lengthComputable) {
+                        loader.uploadTotal = evt.total;
+                        loader.uploaded = evt.loaded;
+                    }
+                });
+            }
+        }
+        _sendRequest(file) {
+            const data = new FormData();
+            data.append('upload', file);
+            this.xhr.send(data);
+        }
+    }
+    function CustomUploadAdapterPlugin(editor) {
+        editor.plugins.get('FileRepository').createUploadAdapter = (loader) => new CustomUploadAdapter(loader);
+    }
+    ClassicEditor.create(document.querySelector('#content'), {
+        extraPlugins: [CustomUploadAdapterPlugin],
+        toolbar: {
+            items: [
+                'heading', '|',
+                'bold', 'italic', 'underline', 'strikethrough', '|',
+                'bulletedList', 'numberedList', '|',
+                'blockQuote', 'codeBlock', '|',
+                'link', 'insertImage', 'insertTable', '|',
+                'undo', 'redo'
+            ]
+        }
+    }).catch(console.error);
+</script>
 @endsection

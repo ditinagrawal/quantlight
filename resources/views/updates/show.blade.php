@@ -37,6 +37,12 @@
             {!! nl2br(e($update->excerpt)) !!}
           </div>
         @endif
+
+        @if($update->content)
+          <div class="project-details__dec mb-35">
+            {!! $update->content !!}
+          </div>
+        @endif
         @if($update->link)
           <div class="mb-40">
             <a href="{{ $update->link }}" target="_blank" rel="noopener" class="rr-btn hover-anim">

@@ -223,7 +223,6 @@ Route::get('/', function () {
     try {
         $content = getQuantLightHtmlContent('index.html');
         $labUpdates = \App\Models\LabUpdate::published()
-            ->orderBy('sort_order')
             ->orderBy('published_date', 'desc')
             ->get();
 

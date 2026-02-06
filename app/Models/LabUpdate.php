@@ -10,12 +10,12 @@ class LabUpdate extends Model
         'title',
         'slug',
         'excerpt',
+        'content',
         'image',
         'link',
         'categories',
         'published_date',
         'is_published',
-        'sort_order',
     ];
 
     protected $casts = [

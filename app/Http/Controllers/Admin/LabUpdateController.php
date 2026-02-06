@@ -15,7 +15,7 @@ class LabUpdateController extends Controller
      */
     public function index()
     {
-        $labUpdates = LabUpdate::orderBy('sort_order')->orderBy('published_date', 'desc')->paginate(10);
+        $labUpdates = LabUpdate::orderBy('published_date', 'desc')->paginate(10);
         return view('admin.lab-updates.index', compact('labUpdates'));
     }
 
@@ -35,6 +35,7 @@ class LabUpdateController extends Controller
         $request->validate([
             'title' => 'required|max:500',
             'excerpt' => 'nullable|string',
+            'content' => 'required|string',
             'link' => 'nullable|url|max:1000',
             'categories' => 'nullable|string|max:255',
             'published_date' => 'required|date',
@@ -51,11 +52,11 @@ class LabUpdateController extends Controller
             'title' => $request->input('title'),
             'slug' => $slug,
             'excerpt' => $request->input('excerpt'),
+            'content' => $request->input('content'),
             'link' => $request->input('link'),
             'categories' => $request->input('categories'),
             'published_date' => $request->input('published_date'),
             'is_published' => $request->boolean('is_published'),
-            'sort_order' => (int) $request->input('sort_order', 0),
             'image' => $imagePath,
         ]);
 
@@ -81,6 +82,7 @@ class LabUpdateController extends Controller
         $request->validate([
             'title' => 'required|max:500',
             'excerpt' => 'nullable|string',
+            'content' => 'required|string',
             'link' => 'nullable|url|max:1000',
             'categories' => 'nullable|string|max:255',
             'published_date' => 'required|date',
@@ -108,11 +110,11 @@ class LabUpdateController extends Controller
             'title' => $request->input('title'),
             'slug' => $slug,
             'excerpt' => $request->input('excerpt'),
+            'content' => $request->input('content'),
             'link' => $request->input('link'),
             'categories' => $request->input('categories'),
             'published_date' => $request->input('published_date'),
             'is_published' => $request->boolean('is_published'),
-            'sort_order' => (int) $request->input('sort_order', 0),
             'image' => $imagePath,
         ]);
 

@@ -13,7 +13,6 @@ class LabUpdateController extends Controller
     public function index()
     {
         $updates = LabUpdate::published()
-            ->orderBy('sort_order')
             ->orderBy('published_date', 'desc')
             ->get();
 
