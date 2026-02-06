@@ -8,6 +8,7 @@ class LabUpdate extends Model
 {
     protected $fillable = [
         'title',
+        'slug',
         'excerpt',
         'image',
         'link',

@@ -121,6 +121,14 @@ if (!function_exists('serveQuantLightHtml')) {
         // But exclude the ones we've already fixed above
         $content = preg_replace('/href=["\']([^"\']+)\.html([^"\']*)["\']/', 'href="$1$2"', $content);
 
+        // Add Updates link to header/footer when served as static fragment (e.g. from index or about)
+        if ($htmlFile === 'header.html') {
+            $content = str_replace('<li><a href="/contact">Contact</a></li>', '<li><a href="/updates">Updates</a></li><li><a href="/contact">Contact</a></li>', $content);
+        }
+        if ($htmlFile === 'footer.html') {
+            $content = str_replace('<li><a href="/contact">Contact</a></li>', '<li><a href="/updates">Updates</a></li><li><a href="/contact">Contact</a></li>', $content);
+        }
+
         return Response::make($content)->header('Content-Type', 'text/html');
     }
 }
@@ -225,7 +233,7 @@ Route::get('/', function () {
                 $imgSrc = $item->image
                     ? (str_contains($item->image, 'quantlight/') ? '/' . $item->image : asset('public/' . $item->image))
                     : '';
-                $linkUrl = $item->link ? e($item->link) : '/news';
+                $linkUrl = $item->slug ? url('/updates/' . $item->slug) : ($item->link ? e($item->link) : '/updates');
                 $dateStr = $item->published_date?->format('m/d/Y') ?? '';
                 $categoriesHtml = '';
                 foreach ($item->categories_array as $cat) {
@@ -404,6 +412,68 @@ Route::get('/researches-capabilities', function () {
     return serveQuantLightHtml('researches-capabilities.html');
 });
 
+// Header/footer fragments for Blade pages (e.g. /updates) so theme JS can load them
+Route::get('/quantlight/fragments/header', function () {
+    $path = public_path('quantlight/header.html');
+    if (!file_exists($path)) {
+        abort(404);
+    }
+    $content = file_get_contents($path);
+    $content = str_replace('href="assets/', 'href="/quantlight/assets/', $content);
+    $content = str_replace("href='assets/", "href='/quantlight/assets/", $content);
+    $content = str_replace('src="assets/', 'src="/quantlight/assets/', $content);
+    $content = str_replace("src='assets/", "src='/quantlight/assets/", $content);
+    $content = str_replace('href="index.html"', 'href="/"', $content);
+    $content = str_replace('href="about.html"', 'href="/about"', $content);
+    $content = str_replace('href="contact.html"', 'href="/contact"', $content);
+    $content = str_replace('href="researches-capabilities.html"', 'href="/researches-capabilities"', $content);
+    $content = str_replace('href="citations.html"', 'href="/citations"', $content);
+    $content = str_replace('href="gallery.html"', 'href="/gallery"', $content);
+    $content = str_replace('href="blog.html"', 'href="/updates"', $content);
+    $content = str_replace('href="news.html"', 'href="/updates"', $content);
+    // Add Updates nav item and fix Contact link
+    $content = str_replace('<li><a href="contact.html">Contact</a></li>', '<li><a href="/updates">Updates</a></li><li><a href="/contact">Contact</a></li>', $content);
+    $content = str_replace('href="contact.html"', 'href="/contact"', $content);
+    $content = preg_replace('/href="([^"]*\.html)"/', 'href="/$1"', $content);
+    $content = str_replace('href="/contact.html"', 'href="/contact"', $content);
+    $content = str_replace('href="/index.html"', 'href="/"', $content);
+    $content = str_replace('href="/about.html"', 'href="/about"', $content);
+    $content = str_replace('href="/researches-capabilities.html"', 'href="/researches-capabilities"', $content);
+    $content = str_replace('href="/citations.html"', 'href="/citations"', $content);
+    $content = str_replace('href="/gallery.html"', 'href="/gallery"', $content);
+    return Response::make($content)->header('Content-Type', 'text/html');
+});
+Route::get('/quantlight/fragments/footer', function () {
+    $path = public_path('quantlight/footer.html');
+    if (!file_exists($path)) {
+        abort(404);
+    }
+    $content = file_get_contents($path);
+    $content = str_replace('href="assets/', 'href="/quantlight/assets/', $content);
+    $content = str_replace("href='assets/", "href='/quantlight/assets/", $content);
+    $content = str_replace('src="assets/', 'src="/quantlight/assets/', $content);
+    $content = str_replace("src='assets/", "src='/quantlight/assets/", $content);
+    $content = str_replace('href="index.html"', 'href="/"', $content);
+    $content = str_replace('href="about.html"', 'href="/about"', $content);
+    $content = str_replace('href="contact.html"', 'href="/contact"', $content);
+    $content = str_replace('href="researches-capabilities.html"', 'href="/researches-capabilities"', $content);
+    $content = str_replace('href="citations.html"', 'href="/citations"', $content);
+    $content = str_replace('href="gallery.html"', 'href="/gallery"', $content);
+    $content = str_replace('href="index.html#capabilities"', 'href="/#capabilities"', $content);
+    $content = str_replace('<li><a href="contact.html">Contact</a></li>', '<li><a href="/updates">Updates</a></li><li><a href="/contact">Contact</a></li>', $content);
+    $content = str_replace('href="index.html"', 'href="/"', $content);
+    $content = str_replace('href="about.html"', 'href="/about"', $content);
+    $content = str_replace('href="contact.html"', 'href="/contact"', $content);
+    $content = str_replace('href="researches-capabilities.html"', 'href="/researches-capabilities"', $content);
+    $content = str_replace('href="citations.html"', 'href="/citations"', $content);
+    $content = str_replace('href="gallery.html"', 'href="/gallery"', $content);
+    return Response::make($content)->header('Content-Type', 'text/html');
+});
+
+// Updates (lab updates) - list and single
+Route::get('/updates', [\App\Http\Controllers\LabUpdateController::class, 'index'])->name('updates.index');
+Route::get('/updates/{slug}', [\App\Http\Controllers\LabUpdateController::class, 'show'])->name('updates.show');
+
 // Citations/Publications route with dynamic content
 Route::get('/citations', function () {
     try {
@@ -493,6 +563,6 @@ Route::get('/{page}', function ($page) {
         \Log::error("Error serving {$htmlFile}: " . $e->getMessage());
         abort(404);
     }
-})->where('page', '^(?!dashboard|citations|researches-capabilities|admin|login|register|forgot-password|reset-password|verify-email|confirm-password|profile|api|quantlight|assets|build|storage|favicon|robots|images)[^\/]*$');
+})->where('page', '^(?!dashboard|citations|researches-capabilities|updates|admin|login|register|forgot-password|reset-password|verify-email|confirm-password|profile|api|quantlight|assets|build|storage|favicon|robots|images)[^\/]*$');
 
 require __DIR__.'/auth.php';

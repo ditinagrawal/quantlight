@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\LabUpdate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class LabUpdateController extends Controller
 {
@@ -45,8 +46,10 @@ class LabUpdateController extends Controller
             $imagePath = $this->uploadImage($request->file('image'));
         }
 
+        $slug = $this->uniqueSlug($request->input('title'));
         LabUpdate::create([
             'title' => $request->input('title'),
+            'slug' => $slug,
             'excerpt' => $request->input('excerpt'),
             'link' => $request->input('link'),
             'categories' => $request->input('categories'),
@@ -100,8 +103,10 @@ class LabUpdateController extends Controller
             $imagePath = null;
         }
 
+        $slug = $this->uniqueSlug($request->input('title'), $labUpdate->id);
         $labUpdate->update([
             'title' => $request->input('title'),
+            'slug' => $slug,
             'excerpt' => $request->input('excerpt'),
             'link' => $request->input('link'),
             'categories' => $request->input('categories'),
@@ -126,6 +131,19 @@ class LabUpdateController extends Controller
         $labUpdate->delete();
 
         return redirect()->route('admin.lab-updates.index')->with('success', 'Lab update deleted successfully!');
+    }
+
+    private function uniqueSlug(string $title, ?int $excludeId = null): string
+    {
+        $slug = Str::slug($title);
+        $query = LabUpdate::where('slug', $slug);
+        if ($excludeId !== null) {
+            $query->where('id', '!=', $excludeId);
+        }
+        if ($query->exists()) {
+            $slug .= '-' . (LabUpdate::max('id') + 1);
+        }
+        return $slug;
     }
 
     private function uploadImage($file): string
