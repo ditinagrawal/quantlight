@@ -65,11 +65,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="link">Read more link</label>
-                            <input type="url" name="link" id="link" class="form-control @error('link') is-invalid @enderror" value="{{ old('link', $labUpdate->link) }}" placeholder="https://...">
-                            @error('link')
-                                <span class="invalid-feedback">{{ $message }}</span>
-                            @enderror
+                            <label>Read more link</label>
+                            <input type="text" class="form-control bg-light" value="{{ route('updates.show', $labUpdate->slug) }}" readonly>
+                            <small class="text-muted">Generated automatically from the title. Opens when visitors click "Read more".</small>
                         </div>
 
                         <div class="form-group">

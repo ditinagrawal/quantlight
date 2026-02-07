@@ -62,9 +62,7 @@
                                 </td>
                                 <td>
                                     <div class="btn-group">
-                                        @if($item->link)
-                                            <a href="{{ $item->link }}" class="btn btn-sm btn-info" target="_blank" title="View link"><i class="fas fa-external-link-alt"></i></a>
-                                        @endif
+                                        <a href="{{ route('updates.show', $item->slug) }}" class="btn btn-sm btn-info" target="_blank" title="View on site"><i class="fas fa-external-link-alt"></i></a>
                                         <a href="{{ route('admin.lab-updates.edit', $item->id) }}" class="btn btn-sm btn-primary" title="Edit"><i class="fas fa-edit"></i></a>
                                         <form action="{{ route('admin.lab-updates.destroy', $item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete this lab update?');">
                                             @csrf

@@ -39,7 +39,7 @@
         @endif
 
         @if($update->content)
-          <div class="project-details__dec mb-35">
+          <div class="project-details__dec update-body mb-35">
             {!! $update->content !!}
           </div>
         @endif

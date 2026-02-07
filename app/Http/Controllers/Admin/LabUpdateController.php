@@ -36,7 +36,6 @@ class LabUpdateController extends Controller
             'title' => 'required|max:500',
             'excerpt' => 'nullable|string',
             'content' => 'required|string',
-            'link' => 'nullable|url|max:1000',
             'categories' => 'nullable|string|max:255',
             'published_date' => 'required|date',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
@@ -48,12 +47,14 @@ class LabUpdateController extends Controller
         }
 
         $slug = $this->uniqueSlug($request->input('title'));
+        $readMoreUrl = url('/updates/' . $slug);
+
         LabUpdate::create([
             'title' => $request->input('title'),
             'slug' => $slug,
             'excerpt' => $request->input('excerpt'),
             'content' => $request->input('content'),
-            'link' => $request->input('link'),
+            'link' => $readMoreUrl,
             'categories' => $request->input('categories'),
             'published_date' => $request->input('published_date'),
             'is_published' => $request->boolean('is_published'),
@@ -83,7 +84,6 @@ class LabUpdateController extends Controller
             'title' => 'required|max:500',
             'excerpt' => 'nullable|string',
             'content' => 'required|string',
-            'link' => 'nullable|url|max:1000',
             'categories' => 'nullable|string|max:255',
             'published_date' => 'required|date',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
@@ -106,12 +106,14 @@ class LabUpdateController extends Controller
         }
 
         $slug = $this->uniqueSlug($request->input('title'), $labUpdate->id);
+        $readMoreUrl = url('/updates/' . $slug);
+
         $labUpdate->update([
             'title' => $request->input('title'),
             'slug' => $slug,
             'excerpt' => $request->input('excerpt'),
             'content' => $request->input('content'),
-            'link' => $request->input('link'),
+            'link' => $readMoreUrl,
             'categories' => $request->input('categories'),
             'published_date' => $request->input('published_date'),
             'is_published' => $request->boolean('is_published'),

@@ -65,14 +65,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="link">Read more link</label>
-                            <input type="url" name="link" id="link" class="form-control @error('link') is-invalid @enderror" value="{{ old('link') }}" placeholder="https://...">
-                            @error('link')
-                                <span class="invalid-feedback">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="form-group">
                             <label for="image">Image</label>
                             <input type="file" name="image" id="image" class="form-control-file" accept="image/*">
                             @error('image')
@@ -104,7 +96,7 @@
                     <ul class="mb-0">
                         <li class="mb-2"><strong>Title:</strong> Short discovery or update title.</li>
                         <li class="mb-2"><strong>Categories:</strong> e.g. Photonics, Vector Beams (comma-separated).</li>
-                        <li class="mb-2"><strong>Link:</strong> Optional URL for "Read more" (news detail or external).</li>
+                        <li class="mb-2"><strong>Read more link:</strong> Generated automatically from the title (e.g. /updates/your-update-title).</li>
                     </ul>
                 </div>
             </div>
