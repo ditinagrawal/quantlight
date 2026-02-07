@@ -9,7 +9,7 @@
     <div class="breadcrumb-section__wrapper" data-background="/quantlight/assets/img/bg.jpg">
       <div class="container">
         <div class="breadcrumb-section__content text_center breadcrumb-section__space">
-          <h3 class="breadcrumb-section__title">Update Details</h3>
+          <h3 class="breadcrumb-section__title">Details</h3>
         </div>
       </div>
       <div class="breadcrumb-section__border"></div>
@@ -22,7 +22,7 @@
       <div class="project-details__wrapper">
         @if($update->image_url)
           <div class="mb-40">
-            <img src="{{ $update->image_url }}" alt="{{ $update->title }}" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="{{ $update->image_url }}" alt="{{ $update->title }}" class="update-detail-img" style="max-width: 100%; height: auto; object-fit: cover; border-radius: 8px;" />
           </div>
         @endif
         <div class="project-details__meta mb-30">
@@ -41,13 +41,6 @@
         @if($update->content)
           <div class="project-details__dec mb-35">
             {!! $update->content !!}
-          </div>
-        @endif
-        @if($update->link)
-          <div class="mb-40">
-            <a href="{{ $update->link }}" target="_blank" rel="noopener" class="rr-btn hover-anim">
-              Read more <i class="fa-light fa-arrow-right"></i><span class="hover-bg"></span>
-            </a>
           </div>
         @endif
         <a href="{{ route('updates.index') }}" class="rr-btn rr-btn_2 hover-anim">

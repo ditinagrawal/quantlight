@@ -26,7 +26,7 @@ if (!function_exists('quantlight_fragment')) {
         $content = str_replace('href="gallery.html"', 'href="/gallery"', $content);
         $content = str_replace('href="blog.html"', 'href="/updates"', $content);
         $content = str_replace('href="news.html"', 'href="/updates"', $content);
-        $content = str_replace('<li><a href="contact.html">Contact</a></li>', '<li><a href="/updates">Updates</a></li><li><a href="/contact">Contact</a></li>', $content);
+        $content = str_replace('<li><a href="contact.html">Contact</a></li>', '<li><a href="/contact">Contact</a></li>', $content);
         $content = str_replace('href="index.html#capabilities"', 'href="/#capabilities"', $content);
 
         return $content;

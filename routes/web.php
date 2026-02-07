@@ -121,11 +121,8 @@ if (!function_exists('serveQuantLightHtml')) {
         // But exclude the ones we've already fixed above
         $content = preg_replace('/href=["\']([^"\']+)\.html([^"\']*)["\']/', 'href="$1$2"', $content);
 
-        // Add Updates link to header/footer when served as static fragment (e.g. from index or about)
+        // Add Updates link to header nav when served as static fragment (footer already has Updates in footer.html)
         if ($htmlFile === 'header.html') {
-            $content = str_replace('<li><a href="/contact">Contact</a></li>', '<li><a href="/updates">Updates</a></li><li><a href="/contact">Contact</a></li>', $content);
-        }
-        if ($htmlFile === 'footer.html') {
             $content = str_replace('<li><a href="/contact">Contact</a></li>', '<li><a href="/updates">Updates</a></li><li><a href="/contact">Contact</a></li>', $content);
         }
 
@@ -243,7 +240,7 @@ Route::get('/', function () {
                     <div class="blog-section-4__item">
                       <div class="blog-section-4__thumb">
                         <a href="' . $linkUrl . '">
-                          <img src="' . ($imgSrc ?: '/quantlight/assets/img/blog1.png') . '" alt="' . e($item->title) . '" />
+                          <img src="' . ($imgSrc ?: '/quantlight/assets/img/blog1.png') . '" alt="' . e($item->title) . '" class="update-card-img" style="width:100%; height:280px; object-fit:cover;" />
                         </a>
                       </div>
                       <div class="blog-section-4__content">
@@ -459,7 +456,7 @@ Route::get('/quantlight/fragments/footer', function () {
     $content = str_replace('href="citations.html"', 'href="/citations"', $content);
     $content = str_replace('href="gallery.html"', 'href="/gallery"', $content);
     $content = str_replace('href="index.html#capabilities"', 'href="/#capabilities"', $content);
-    $content = str_replace('<li><a href="contact.html">Contact</a></li>', '<li><a href="/updates">Updates</a></li><li><a href="/contact">Contact</a></li>', $content);
+    $content = str_replace('<li><a href="contact.html">Contact</a></li>', '<li><a href="/contact">Contact</a></li>', $content);
     $content = str_replace('href="index.html"', 'href="/"', $content);
     $content = str_replace('href="about.html"', 'href="/about"', $content);
     $content = str_replace('href="contact.html"', 'href="/contact"', $content);

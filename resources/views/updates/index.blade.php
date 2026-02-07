@@ -34,14 +34,14 @@
 
       <div class="row">
         @forelse($updates as $update)
-          <div class="col-lg-4 col-md-6 mb-30">
+          <div class="col-lg-6 col-md-6 mb-30">
             <div class="blog-section-4__item">
               <div class="blog-section-4__thumb">
                 <a href="{{ route('updates.show', $update->slug) }}">
                   <img
                     src="{{ $update->image_url ?? '/quantlight/assets/img/blog1.png' }}"
                     alt="{{ $update->title }}"
-                    style="width: 100%; height: 240px; object-fit: cover;"
+                    class="update-card-img" style="width: 100%; height: 280px; object-fit: cover;"
                   />
                 </a>
               </div>
