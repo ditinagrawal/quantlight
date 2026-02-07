@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="/quantlight/assets/css/fontawesome-pro.css" />
   <link rel="stylesheet" href="/quantlight/assets/css/spacing.css" />
   <link rel="stylesheet" href="/quantlight/assets/css/main.css" />
+  <link rel="stylesheet" href="/quantlight/assets/css/updates-overrides.css" />
   @stack('styles')
 </head>
 <body>

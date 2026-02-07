@@ -219,6 +219,10 @@ if (!function_exists('getQuantLightHtmlContent')) {
 Route::get('/', function () {
     try {
         $content = getQuantLightHtmlContent('index.html');
+        // Ensure updates-overrides.css is loaded (equal image sizes + flex column for lab updates)
+        if (strpos($content, 'updates-overrides.css') === false) {
+            $content = str_replace('</head>', '    <link rel="stylesheet" href="/quantlight/assets/css/updates-overrides.css" />' . "\n  </head>", $content);
+        }
         $labUpdates = \App\Models\LabUpdate::published()
             ->orderBy('published_date', 'desc')
             ->get();
@@ -240,7 +244,7 @@ Route::get('/', function () {
                     <div class="blog-section-4__item">
                       <div class="blog-section-4__thumb">
                         <a href="' . $linkUrl . '">
-                          <img src="' . ($imgSrc ?: '/quantlight/assets/img/blog1.png') . '" alt="' . e($item->title) . '" class="update-card-img" style="width:100%; height:280px; object-fit:cover;" />
+                          <img src="' . ($imgSrc ?: '/quantlight/assets/img/blog1.png') . '" alt="' . e($item->title) . '" class="update-card-img" />
                         </a>
                       </div>
                       <div class="blog-section-4__content">

@@ -41,7 +41,7 @@
                   <img
                     src="{{ $update->image_url ?? '/quantlight/assets/img/blog1.png' }}"
                     alt="{{ $update->title }}"
-                    class="update-card-img" style="width: 100%; height: 280px; object-fit: cover;"
+                    class="update-card-img"
                   />
                 </a>
               </div>

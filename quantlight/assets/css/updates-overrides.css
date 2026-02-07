@@ -1,0 +1,49 @@
+/**
+ * Updates / Lab discoveries: card layout and equal image sizes
+ * - Card layout: image on top, title and details below (flex column)
+ * - Same image dimensions on /updates, update detail page, and home (slider, lab updates)
+ */
+
+/* Card layout: flex column (image on top, content below) */
+.blog-section-4__area .blog-section-4__item {
+  flex-direction: column !important;
+  align-items: stretch !important;
+  max-width: none;
+}
+
+/* Equal-size image container for cards (updates list + home slider) */
+.blog-section-4__area .blog-section-4__thumb {
+  width: 100% !important;
+  height: 280px !important;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.blog-section-4__area .blog-section-4__thumb a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.blog-section-4__area .blog-section-4__thumb img,
+.blog-section-4__area .update-card-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block;
+}
+
+/* Update detail page: consistent hero image size */
+.update-detail-img {
+  width: 100% !important;
+  max-height: 420px !important;
+  object-fit: cover !important;
+  border-radius: 8px;
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px),
+       (max-width: 575px) {
+  .blog-section-4__area .blog-section-4__thumb {
+    height: 220px !important;
+  }
+}

@@ -22,7 +22,7 @@
       <div class="project-details__wrapper">
         @if($update->image_url)
           <div class="mb-40">
-            <img src="{{ $update->image_url }}" alt="{{ $update->title }}" class="update-detail-img" style="max-width: 100%; height: auto; object-fit: cover; border-radius: 8px;" />
+            <img src="{{ $update->image_url }}" alt="{{ $update->title }}" class="update-detail-img" />
           </div>
         @endif
         <div class="project-details__meta mb-30">
