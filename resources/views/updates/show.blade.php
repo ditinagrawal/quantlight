@@ -3,6 +3,158 @@
 @section('title', $update->title)
 @section('description', Str::limit(strip_tags($update->excerpt ?? ''), 160))
 
+@push('styles')
+<!-- CKEditor Content Styling (same as SmartPath) – ensures bullets, spacing, margins work on production -->
+<style>
+.project-details__area .update-body {
+    line-height: 1.8;
+}
+
+.project-details__area .update-body p {
+    margin-bottom: 1.5em;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.project-details__area .update-body h1,
+.project-details__area .update-body h2,
+.project-details__area .update-body h3,
+.project-details__area .update-body h4,
+.project-details__area .update-body h5,
+.project-details__area .update-body h6 {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--rr-heading-primary, #192929);
+}
+
+.project-details__area .update-body h1:first-child,
+.project-details__area .update-body h2:first-child,
+.project-details__area .update-body h3:first-child,
+.project-details__area .update-body h4:first-child,
+.project-details__area .update-body h5:first-child,
+.project-details__area .update-body h6:first-child {
+    margin-top: 0;
+}
+
+.project-details__area .update-body h1 { font-size: 32px; }
+.project-details__area .update-body h2 { font-size: 28px; }
+.project-details__area .update-body h3 { font-size: 24px; }
+.project-details__area .update-body h4 { font-size: 20px; }
+.project-details__area .update-body h5 { font-size: 18px; }
+.project-details__area .update-body h6 { font-size: 16px; }
+
+.project-details__area .update-body ul,
+.project-details__area .update-body ol {
+    margin-bottom: 1.5em;
+    padding-left: 2em;
+}
+
+.project-details__area .update-body ul li,
+.project-details__area .update-body ol li {
+    margin-bottom: 0.5em;
+    line-height: 1.8;
+    display: list-item !important;
+}
+
+.project-details__area .update-body ul {
+    list-style-type: disc !important;
+    list-style-position: outside !important;
+}
+
+.project-details__area .update-body ol {
+    list-style-type: decimal !important;
+    list-style-position: outside !important;
+}
+
+.project-details__area .update-body ul ul {
+    list-style-type: circle;
+}
+
+.project-details__area .update-body ol ol {
+    list-style-type: lower-alpha;
+}
+
+.project-details__area .update-body blockquote {
+    margin: 1.5em 0;
+    padding: 1em 1.5em;
+    border-left: 4px solid var(--rr-theme-primary, #0a4d3c);
+    background-color: rgba(25, 41, 41, 0.05);
+    font-style: italic;
+}
+
+.project-details__area .update-body code {
+    background-color: rgba(25, 41, 41, 0.08);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+.project-details__area .update-body pre {
+    background-color: rgba(25, 41, 41, 0.06);
+    padding: 1em;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin-bottom: 1.5em;
+}
+
+.project-details__area .update-body pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+.project-details__area .update-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5em;
+}
+
+.project-details__area .update-body table th,
+.project-details__area .update-body table td {
+    padding: 0.75em;
+    border: 1px solid rgba(25, 41, 41, 0.15);
+    text-align: left;
+}
+
+.project-details__area .update-body table th {
+    background-color: rgba(25, 41, 41, 0.05);
+    font-weight: 600;
+}
+
+.project-details__area .update-body img {
+    max-width: 100%;
+    height: auto;
+    margin: 1.5em 0;
+    border-radius: 5px;
+}
+
+.project-details__area .update-body a {
+    color: var(--rr-theme-primary, #0a4d3c);
+    text-decoration: underline;
+}
+
+.project-details__area .update-body a:hover {
+    opacity: 0.9;
+}
+
+.project-details__area .update-body strong {
+    font-weight: 600;
+}
+
+.project-details__area .update-body em {
+    font-style: italic;
+}
+
+.project-details__area .update-body hr {
+    margin: 2em 0;
+    border: none;
+    border-top: 1px solid rgba(25, 41, 41, 0.15);
+}
+</style>
+@endpush
+
 @section('content')
   <!-- breadcrumb -->
   <section class="breadcrumb-section__area heading-bg">
